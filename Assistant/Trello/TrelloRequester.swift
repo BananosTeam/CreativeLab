@@ -13,6 +13,19 @@ private let TrelloURL = "https://api.trello.com/1"
 
 final class TrelloRequester {
     
+    func getCardsForMemberId(memberId: String, callback:([Card]?)->()) {
+        let module = "/members/\(memberId)/cards"
+        getRequest(module) {
+            if let responseData = $0?.result.value as? NSArray {
+                let cardsArray = responseData.flatMap() { $0 as? NSDictionary }
+                let cards = CardParser().cardsFromDictionaties(cardsArray)
+                callback(cards)
+            } else {
+                callback(nil)
+            }
+        }
+    }
+    
     func getMembers(boardId: String, callback:([Member]?)->()) {
         let module = "/boards/\(boardId)/members"
         getRequest(module) {

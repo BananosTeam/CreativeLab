@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TrelloDataHandler.shared.loadData()
         if let token = Trello.shared.getToken() {
             let trelloRequester = TrelloRequester()
-            trelloRequester.getMembers("5736fe2e5ab6038f5295e222") {
+            trelloRequester.getCardsForMemberId("5736fea69bc9bb59fdee87a3") {
                 print($0)
             }
         }

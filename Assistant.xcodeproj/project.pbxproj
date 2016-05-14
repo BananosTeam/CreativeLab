@@ -44,6 +44,7 @@
 		B19D03FD1CE7CE8D00CB8BA6 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B159DD8D1CE7554200129DC7 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B19D04031CE7DDA100CB8BA6 /* TrelloDataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D04021CE7DDA100CB8BA6 /* TrelloDataHolder.swift */; };
 		B19D04111CE7E21900CB8BA6 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D04101CE7E21900CB8BA6 /* Member.swift */; };
+		B19D04131CE7F01900CB8BA6 /* TrelloInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D04121CE7F01900CB8BA6 /* TrelloInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +229,7 @@
 		B19D03E51CE7C21800CB8BA6 /* NSData+Trello.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Trello.swift"; sourceTree = "<group>"; };
 		B19D04021CE7DDA100CB8BA6 /* TrelloDataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrelloDataHolder.swift; sourceTree = "<group>"; };
 		B19D04101CE7E21900CB8BA6 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		B19D04121CE7F01900CB8BA6 /* TrelloInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrelloInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +349,7 @@
 		B159DD811CE7553800129DC7 /* Trello */ = {
 			isa = PBXGroup;
 			children = (
+				B19D04121CE7F01900CB8BA6 /* TrelloInterface.swift */,
 				B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */,
 				B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */,
 				B19D03E41CE7C20600CB8BA6 /* Extensions */,
@@ -584,6 +587,7 @@
 				B19D04031CE7DDA100CB8BA6 /* TrelloDataHolder.swift in Sources */,
 				7D099AD11CE78C0D00CFCC7F /* AppDelegate.swift in Sources */,
 				7D7B93761CE76CB400A03DAC /* String.swift in Sources */,
+				B19D04131CE7F01900CB8BA6 /* TrelloInterface.swift in Sources */,
 				7D7B936F1CE755CE00A03DAC /* MessagesViewController.swift in Sources */,
 				7D7B93701CE755CE00A03DAC /* MessageTableViewCell.swift in Sources */,
 				7D7B93721CE755FD00A03DAC /* Message.swift in Sources */,
