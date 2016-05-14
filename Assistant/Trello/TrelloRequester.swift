@@ -13,6 +13,31 @@ private let TrelloURL = "https://api.trello.com/1"
 
 final class TrelloRequester {
     
+    func getMembers(boardId: String, callback:([Member]?)->()) {
+        let module = "/boards/\(boardId)/members"
+        getRequest(module) {
+            if let responseData = $0?.result.value as? NSArray {
+                let cardsArray = responseData.flatMap() { $0 as? NSDictionary }
+                let cards = MemberParser().membersFromDictionaties(cardsArray)
+                callback(cards)
+            } else {
+                callback(nil)
+            }
+        }
+    }
+    
+    func getCards(boardId: String, callback:([Card]?)->()) {
+        let module = "/boards/\(boardId)/cards"
+        getRequest(module) {
+            if let responseData = $0?.result.value as? NSArray {
+                let cardsArray = responseData.flatMap() { $0 as? NSDictionary }
+                let cards = CardParser().cardsFromDictionaties(cardsArray)
+                callback(cards)
+            } else {
+                callback(nil)
+            }
+        }
+    }
     
     func getBoards(callback:([Board]?)->()) {
         let module = "/member/me/boards"
@@ -38,20 +63,6 @@ final class TrelloRequester {
                 callback(nil)
             }
         }
-    }
-    
-    func getCards(listId: String, callback: ([Card]?)->()) {
-        let module = "/lists/\(listId)/cards"
-        getRequest(module) {
-            if let responseData = $0?.result.value as? NSArray {
-                let cardsArray = responseData.flatMap() { $0 as? NSDictionary }
-                let cards = CardParser().cardsFromDictionaties(cardsArray)
-                callback(cards)
-            } else {
-                callback(nil)
-            }
-        }
-        
     }
     
     private func getRequest(module: String, callback:(response: Response<AnyObject, NSError>?) -> Void) {

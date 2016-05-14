@@ -42,6 +42,8 @@
 		B19D03E61CE7C21800CB8BA6 /* NSData+Trello.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D03E51CE7C21800CB8BA6 /* NSData+Trello.swift */; };
 		B19D03FC1CE7CE8D00CB8BA6 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B159DD8D1CE7554200129DC7 /* OAuthSwift.framework */; };
 		B19D03FD1CE7CE8D00CB8BA6 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B159DD8D1CE7554200129DC7 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19D04031CE7DDA100CB8BA6 /* TrelloDataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D04021CE7DDA100CB8BA6 /* TrelloDataHolder.swift */; };
+		B19D04111CE7E21900CB8BA6 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D04101CE7E21900CB8BA6 /* Member.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +226,8 @@
 		B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		B19D03D61CE7B9BD00CB8BA6 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		B19D03E51CE7C21800CB8BA6 /* NSData+Trello.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Trello.swift"; sourceTree = "<group>"; };
+		B19D04021CE7DDA100CB8BA6 /* TrelloDataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrelloDataHolder.swift; sourceTree = "<group>"; };
+		B19D04101CE7E21900CB8BA6 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +335,7 @@
 		B1489F5E1CE7A52C00B84213 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B19D04101CE7E21900CB8BA6 /* Member.swift */,
 				B1489F6B1CE7A82B00B84213 /* Board.swift */,
 				B1489F6D1CE7AADD00B84213 /* BoardMember.swift */,
 				B1489F6F1CE7B08E00B84213 /* List.swift */,
@@ -348,6 +353,7 @@
 				B1489F5E1CE7A52C00B84213 /* Models */,
 				B159DD9C1CE7635700129DC7 /* Trello.swift */,
 				B159DD9E1CE767CC00129DC7 /* TrelloRequester.swift */,
+				B19D04021CE7DDA100CB8BA6 /* TrelloDataHolder.swift */,
 			);
 			path = Trello;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19D04031CE7DDA100CB8BA6 /* TrelloDataHolder.swift in Sources */,
 				7D099AD11CE78C0D00CFCC7F /* AppDelegate.swift in Sources */,
 				7D7B93761CE76CB400A03DAC /* String.swift in Sources */,
 				7D7B936F1CE755CE00A03DAC /* MessagesViewController.swift in Sources */,
@@ -583,6 +590,7 @@
 				7D7B936E1CE755CE00A03DAC /* MessagesTableView.swift in Sources */,
 				7DD2ABD41CE745C70025024C /* SlackRealtimeMessager.swift in Sources */,
 				7DD2ABCE1CE73BC80025024C /* SlackAuthenticator.swift in Sources */,
+				B19D04111CE7E21900CB8BA6 /* Member.swift in Sources */,
 				7D099ACA1CE7777500CFCC7F /* SlackTeam.swift in Sources */,
 				7DD2ABCA1CE721F70025024C /* SlackClient.swift in Sources */,
 				7D099AC71CE76D6A00CFCC7F /* SlackFetcher.swift in Sources */,

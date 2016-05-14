@@ -31,14 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        TrelloDataHandler.shared.loadData()
+        if let token = Trello.shared.getToken() {
+            let trelloRequester = TrelloRequester()
+            trelloRequester.getMembers("5736fe2e5ab6038f5295e222") {
+                print($0)
+            }
+        }
+        
         if SlackClient.Token == nil {
             SlackClient.Authenticate()
         } else {
             slackClient = SlackClient()
-        }
-        let trelloRequester = TrelloRequester()
-        trelloRequester.getCards("5736fe426eeb4eb8113d900c") {
-            print($0)
         }
         
         return true

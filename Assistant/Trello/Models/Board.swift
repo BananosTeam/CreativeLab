@@ -9,7 +9,7 @@
 import Foundation
 
 final class Board {
-    
+    var id: String?
     var name: String?
     var description: String?
     var idOrganisation: String?
@@ -27,6 +27,7 @@ final class BoardParser {
     
     func boardFromDictionary(dictionary: NSDictionary) -> Board {
         let board = Board()
+        board.id = dictionary["id"] as? String
         board.name = dictionary["name"] as? String
         board.description = dictionary["desc"] as? String
         board.idOrganisation = dictionary["idOrganization"] as? String

@@ -31,6 +31,7 @@ final class Trello {
         }
         userDefaults.setObject(token, forKey: TrelloAuthTokenKey)
         oAuthToken = token
+        TrelloDataHandler.shared.loadData()
     }
     
     func performAuthorisation() {
