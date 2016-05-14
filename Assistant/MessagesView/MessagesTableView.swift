@@ -54,7 +54,6 @@ final class MessagesTableView: UITableView, UITableViewDelegate, UITableViewData
                 }
                 setNeedsLayout()
                 layoutIfNeeded()
-                cell.messageContentView.dodo.info(message.message)
                 return cell
             } else {
                 return UITableViewCell(style: .Default, reuseIdentifier: "DefaltCellReuseIdentifier")
@@ -67,7 +66,6 @@ final class MessagesTableView: UITableView, UITableViewDelegate, UITableViewData
                 }
                 setNeedsLayout()
                 layoutIfNeeded()
-                cell.messageContentView.dodo.success(message.message)
                 return cell
             } else {
                 return UITableViewCell(style: .Default, reuseIdentifier: "DefaltCellReuseIdentifier")

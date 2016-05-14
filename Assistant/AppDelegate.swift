@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             slackClient = SlackClient()
         }
+        let trelloRequester = TrelloRequester()
+        trelloRequester.getCards("5736fe426eeb4eb8113d900c") {
+            print($0)
+        }
         
         return true
     }
@@ -48,10 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 guard isAuthenticated else { return }
                 self.slackClient = SlackClient()
             }
-            
+            return true
+        } else {
+            Trello.shared.handleCallbackUrlWithQueryItems(queries)
             return true
         }
         return true
     }
+    
 }
 

@@ -31,7 +31,147 @@
 		7DD2ABD01CE73D160025024C /* SlackUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABCF1CE73D160025024C /* SlackUser.swift */; };
 		7DD2ABD21CE745BB0025024C /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD2ABD11CE745BB0025024C /* Starscream.framework */; };
 		7DD2ABD41CE745C70025024C /* SlackRealtimeMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABD31CE745C70025024C /* SlackRealtimeMessager.swift */; };
+		B1489F6C1CE7A82B00B84213 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F6B1CE7A82B00B84213 /* Board.swift */; };
+		B1489F6E1CE7AADD00B84213 /* BoardMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F6D1CE7AADD00B84213 /* BoardMember.swift */; };
+		B1489F701CE7B08E00B84213 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1489F6F1CE7B08E00B84213 /* List.swift */; };
+		B159DD9D1CE7635700129DC7 /* Trello.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159DD9C1CE7635700129DC7 /* Trello.swift */; };
+		B159DD9F1CE767CC00129DC7 /* TrelloRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B159DD9E1CE767CC00129DC7 /* TrelloRequester.swift */; };
+		B159DDBC1CE76D2000129DC7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B159DDAD1CE76CA500129DC7 /* Alamofire.framework */; };
+		B159DDBD1CE76D2000129DC7 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B159DDAD1CE76CA500129DC7 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19D03D71CE7B9BD00CB8BA6 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D03D61CE7B9BD00CB8BA6 /* Card.swift */; };
+		B19D03E61CE7C21800CB8BA6 /* NSData+Trello.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19D03E51CE7C21800CB8BA6 /* NSData+Trello.swift */; };
+		B19D03FC1CE7CE8D00CB8BA6 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B159DD8D1CE7554200129DC7 /* OAuthSwift.framework */; };
+		B19D03FD1CE7CE8D00CB8BA6 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B159DD8D1CE7554200129DC7 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B159DD8C1CE7554200129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F435027A1A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
+		B159DD8E1CE7554200129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F451E3C5195B8CD80051434C;
+			remoteInfo = OAuthSwiftDemo;
+		};
+		B159DD901CE7554200129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C48B28021AFA598D00C7DEF6;
+			remoteInfo = OAuthSwiftOSX;
+		};
+		B159DD921CE7554200129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C49FD5241AFB5DF500791E1A;
+			remoteInfo = OAuthSwiftOSXDemo;
+		};
+		B159DD941CE7554200129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4B6EE1E1BF74CE300443596;
+			remoteInfo = OAuthSwiftTVOS;
+		};
+		B159DD961CE7554200129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C40890C01C11B37000E3146A;
+			remoteInfo = OAuthSwiftWatchOS;
+		};
+		B159DD981CE7554200129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D50DF71BFB693F0053B624;
+			remoteInfo = OAuthSwiftTests;
+		};
+		B159DDAC1CE76CA500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		B159DDAE1CE76CA500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		B159DDB01CE76CA500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		B159DDB21CE76CA500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		B159DDB41CE76CA500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS";
+		};
+		B159DDB61CE76CA500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS Tests";
+		};
+		B159DDB81CE76CA500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
+		B159DDBA1CE76CF500129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		B159DDBE1CE76D2000129DC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		B19D03FA1CE7CE7D00CB8BA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F43502791A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
+		B19D03FE1CE7CE8D00CB8BA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F43502791A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7D7B93641CE73B8700A03DAC /* Embed Frameworks */ = {
@@ -42,6 +182,8 @@
 			files = (
 				7D7B93631CE73B8600A03DAC /* Dodo.framework in Embed Frameworks */,
 				7D099ABD1CE74BF300CFCC7F /* Starscream.framework in Embed Frameworks */,
+				B19D03FD1CE7CE8D00CB8BA6 /* OAuthSwift.framework in Embed Frameworks */,
+				B159DDBD1CE76D2000129DC7 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +215,15 @@
 		7DD2ABCF1CE73D160025024C /* SlackUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackUser.swift; sourceTree = "<group>"; };
 		7DD2ABD11CE745BB0025024C /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Starscream.framework; sourceTree = "<group>"; };
 		7DD2ABD31CE745C70025024C /* SlackRealtimeMessager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackRealtimeMessager.swift; sourceTree = "<group>"; };
+		B1489F6B1CE7A82B00B84213 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		B1489F6D1CE7AADD00B84213 /* BoardMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardMember.swift; sourceTree = "<group>"; };
+		B1489F6F1CE7B08E00B84213 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-0.5.2/OAuthSwift.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		B159DD9C1CE7635700129DC7 /* Trello.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trello.swift; sourceTree = "<group>"; };
+		B159DD9E1CE767CC00129DC7 /* TrelloRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrelloRequester.swift; sourceTree = "<group>"; };
+		B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		B19D03D61CE7B9BD00CB8BA6 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B19D03E51CE7C21800CB8BA6 /* NSData+Trello.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Trello.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +233,8 @@
 			files = (
 				7D7B93611CE73B8200A03DAC /* Dodo.framework in Frameworks */,
 				7DD2ABD21CE745BB0025024C /* Starscream.framework in Frameworks */,
+				B19D03FC1CE7CE8D00CB8BA6 /* OAuthSwift.framework in Frameworks */,
+				B159DDBC1CE76D2000129DC7 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +276,7 @@
 				7D7B936A1CE755CE00A03DAC /* MessagesView */,
 				7D7B93741CE76CA700A03DAC /* Extensions */,
 				7DD2ABC61CE7200D0025024C /* SlackAPI */,
+				B159DD811CE7553800129DC7 /* Trello */,
 				7D7B934D1CE71D8700A03DAC /* AppDelegate.swift */,
 				7D7B93511CE71D8700A03DAC /* Main.storyboard */,
 				7D7B93541CE71D8700A03DAC /* Assets.xcassets */,
@@ -174,6 +328,66 @@
 			path = SlackAPI;
 			sourceTree = "<group>";
 		};
+		B1489F5E1CE7A52C00B84213 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1489F6B1CE7A82B00B84213 /* Board.swift */,
+				B1489F6D1CE7AADD00B84213 /* BoardMember.swift */,
+				B1489F6F1CE7B08E00B84213 /* List.swift */,
+				B19D03D61CE7B9BD00CB8BA6 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B159DD811CE7553800129DC7 /* Trello */ = {
+			isa = PBXGroup;
+			children = (
+				B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */,
+				B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */,
+				B19D03E41CE7C20600CB8BA6 /* Extensions */,
+				B1489F5E1CE7A52C00B84213 /* Models */,
+				B159DD9C1CE7635700129DC7 /* Trello.swift */,
+				B159DD9E1CE767CC00129DC7 /* TrelloRequester.swift */,
+			);
+			path = Trello;
+			sourceTree = "<group>";
+		};
+		B159DD831CE7554200129DC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B159DD8D1CE7554200129DC7 /* OAuthSwift.framework */,
+				B159DD8F1CE7554200129DC7 /* OAuthSwiftDemo.app */,
+				B159DD911CE7554200129DC7 /* OAuthSwift.framework */,
+				B159DD931CE7554200129DC7 /* OAuthSwiftOSXDemo.app */,
+				B159DD951CE7554200129DC7 /* OAuthSwift.framework */,
+				B159DD971CE7554200129DC7 /* OAuthSwift.framework */,
+				B159DD991CE7554200129DC7 /* OAuthSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B159DDA31CE76CA500129DC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B159DDAD1CE76CA500129DC7 /* Alamofire.framework */,
+				B159DDAF1CE76CA500129DC7 /* Alamofire iOS Tests.xctest */,
+				B159DDB11CE76CA500129DC7 /* Alamofire.framework */,
+				B159DDB31CE76CA500129DC7 /* Alamofire OSX Tests.xctest */,
+				B159DDB51CE76CA500129DC7 /* Alamofire.framework */,
+				B159DDB71CE76CA500129DC7 /* Alamofire tvOS Tests.xctest */,
+				B159DDB91CE76CA500129DC7 /* Alamofire.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B19D03E41CE7C20600CB8BA6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B19D03E51CE7C21800CB8BA6 /* NSData+Trello.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +403,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				B19D03FB1CE7CE7D00CB8BA6 /* PBXTargetDependency */,
+				B159DDBB1CE76CF500129DC7 /* PBXTargetDependency */,
+				B159DDBF1CE76D2000129DC7 /* PBXTargetDependency */,
+				B19D03FF1CE7CE8D00CB8BA6 /* PBXTargetDependency */,
 			);
 			name = Assistant;
 			productName = Assistant;
@@ -207,7 +425,6 @@
 				TargetAttributes = {
 					7D7B93491CE71D8700A03DAC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QE33WF5A23;
 					};
 				};
 			};
@@ -222,12 +439,123 @@
 			mainGroup = 7D7B93411CE71D8700A03DAC;
 			productRefGroup = 7D7B934B1CE71D8700A03DAC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B159DDA31CE76CA500129DC7 /* Products */;
+					ProjectRef = B159DDA21CE76CA500129DC7 /* Alamofire.xcodeproj */;
+				},
+				{
+					ProductGroup = B159DD831CE7554200129DC7 /* Products */;
+					ProjectRef = B159DD821CE7554200129DC7 /* OAuthSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7D7B93491CE71D8700A03DAC /* Assistant */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B159DD8D1CE7554200129DC7 /* OAuthSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuthSwift.framework;
+			remoteRef = B159DD8C1CE7554200129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DD8F1CE7554200129DC7 /* OAuthSwiftDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = OAuthSwiftDemo.app;
+			remoteRef = B159DD8E1CE7554200129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DD911CE7554200129DC7 /* OAuthSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuthSwift.framework;
+			remoteRef = B159DD901CE7554200129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DD931CE7554200129DC7 /* OAuthSwiftOSXDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = OAuthSwiftOSXDemo.app;
+			remoteRef = B159DD921CE7554200129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DD951CE7554200129DC7 /* OAuthSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuthSwift.framework;
+			remoteRef = B159DD941CE7554200129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DD971CE7554200129DC7 /* OAuthSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuthSwift.framework;
+			remoteRef = B159DD961CE7554200129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DD991CE7554200129DC7 /* OAuthSwiftTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OAuthSwiftTests.xctest;
+			remoteRef = B159DD981CE7554200129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DDAD1CE76CA500129DC7 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = B159DDAC1CE76CA500129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DDAF1CE76CA500129DC7 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = B159DDAE1CE76CA500129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DDB11CE76CA500129DC7 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = B159DDB01CE76CA500129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DDB31CE76CA500129DC7 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = B159DDB21CE76CA500129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DDB51CE76CA500129DC7 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = B159DDB41CE76CA500129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DDB71CE76CA500129DC7 /* Alamofire tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire tvOS Tests.xctest";
+			remoteRef = B159DDB61CE76CA500129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B159DDB91CE76CA500129DC7 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = B159DDB81CE76CA500129DC7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7D7B93481CE71D8700A03DAC /* Resources */ = {
@@ -264,10 +592,40 @@
 				7D099AC11CE75F0200CFCC7F /* SlackEvent.swift in Sources */,
 				7D099AC31CE7641A00CFCC7F /* SlackMessage.swift in Sources */,
 				7DD2ABD01CE73D160025024C /* SlackUser.swift in Sources */,
+				B159DD9D1CE7635700129DC7 /* Trello.swift in Sources */,
+				B1489F701CE7B08E00B84213 /* List.swift in Sources */,
+				B1489F6E1CE7AADD00B84213 /* BoardMember.swift in Sources */,
+				B19D03E61CE7C21800CB8BA6 /* NSData+Trello.swift in Sources */,
+				B1489F6C1CE7A82B00B84213 /* Board.swift in Sources */,
+				B159DD9F1CE767CC00129DC7 /* TrelloRequester.swift in Sources */,
+				B19D03D71CE7B9BD00CB8BA6 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B159DDBB1CE76CF500129DC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = B159DDBA1CE76CF500129DC7 /* PBXContainerItemProxy */;
+		};
+		B159DDBF1CE76D2000129DC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = B159DDBE1CE76D2000129DC7 /* PBXContainerItemProxy */;
+		};
+		B19D03FB1CE7CE7D00CB8BA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthSwift;
+			targetProxy = B19D03FA1CE7CE7D00CB8BA6 /* PBXContainerItemProxy */;
+		};
+		B19D03FF1CE7CE8D00CB8BA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthSwift;
+			targetProxy = B19D03FE1CE7CE8D00CB8BA6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7D7B93511CE71D8700A03DAC /* Main.storyboard */ = {
@@ -307,7 +665,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -352,7 +709,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -377,7 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -397,7 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
