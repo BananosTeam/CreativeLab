@@ -13,5 +13,4 @@ protocol SRMRetriever {
     func setChannels(callback: [SlackChannel])
     func setCurrentUser(callback: SlackUser?)
     func setTeam(callback: SlackTeam)
-    
 }

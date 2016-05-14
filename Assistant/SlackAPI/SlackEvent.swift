@@ -13,7 +13,7 @@ enum SlackEvent {
     case ChannelJoined(SlackChannel)
     case ChannelDeleted(String)
     case ChannelRename(SlackChannel)
-    case UserTyping(user: String, channel: String)
+//    case UserTyping(user: String, channel: String)
     case Other
     
     init?(json: [String: AnyObject]) {
@@ -23,7 +23,7 @@ enum SlackEvent {
         case "channel_joined": self = ChannelJoined(SlackChannel(json: json["channel"] as? [String: AnyObject] ?? [:]))
         case "channel_left", "channel_deleted": self = ChannelDeleted(json["channel"] as? String ?? "")
         case "channel_rename": self = ChannelRename(SlackChannel(json: json["channel"] as? [String: AnyObject] ?? [:]))
-        case "user_typing": self = UserTyping(user: json["user"] as? String ?? "", channel: json["channel"] as? String ?? "")
+//        case "user_typing": self = UserTyping(user: json["user"] as? String ?? "", channel: json["channel"] as? String ?? "")
         default: self = Other
         }
     }

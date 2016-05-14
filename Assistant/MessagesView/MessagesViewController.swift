@@ -9,11 +9,15 @@
 import UIKit
 import Dodo
 
-final class MessagesViewController: UIViewController, UITextFieldDelegate {
+final class MessagesViewController: UIViewController, UITextFieldDelegate, SRMDelegate {
     @IBOutlet weak var messagesTableView: MessagesTableView!
     @IBOutlet weak var typeMessageTextView: UITextField!
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var typeMessageViewBottomConstraint: NSLayoutConstraint!
+    
+    var client: SlackClient? {
+        didSet { self.client?.start() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,12 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate {
                                                          name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide),
                                                          name:UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    // MARK: SRMRetriever
+    
+    func eventReceived(event: SlackEvent) {
+
     }
     
     // MARK: Actions
