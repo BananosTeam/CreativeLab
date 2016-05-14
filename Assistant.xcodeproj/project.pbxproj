@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					7D7B93491CE71D8700A03DAC = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9XTDAT7GE2;
 					};
 				};
 			};
@@ -249,10 +250,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: mihai8804858@gmail.com (7FF2WP25MD)";
 				INFOPLIST_FILE = Assistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +264,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: mihai8804858@gmail.com (7FF2WP25MD)";
 				INFOPLIST_FILE = Assistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +293,7 @@
 				7D7B935E1CE71D8700A03DAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
