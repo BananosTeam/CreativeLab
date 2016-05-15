@@ -18,7 +18,7 @@ class SlackRealtimeMessager: WebSocketDelegate {
     
     let tokenQuery: String
     
-    private var id = 1
+    private var id = 1000
     
     init(tokenQuery: String) {
         self.tokenQuery = tokenQuery
@@ -57,17 +57,24 @@ class SlackRealtimeMessager: WebSocketDelegate {
     }
     
     func sendMessage(message: String, channel: String) {
-        id += 1
-        let json = [
-            "text": message,
-            "channel": channel,
-            "id": id,
-            "type": "message"
-        ]
-        guard let data = try? NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions(rawValue: 0)) else {
+//        id += 1
+//        let json = [
+//            "text": message,
+//            "channel": channel,
+//            "id": id,
+//            "type": "message"
+//        ]
+//        guard let data = try? NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions(rawValue: 0)) else {
+//            return
+//        }
+//        socket?.writeData(data)
+        guard let postURL = NSURL(string: SlackAPI + "chat.postMessage?channel=\(channel)&text=\(message)&" + tokenQuery) else {
             return
         }
-        socket?.writeData(data)
+        let task = NSURLSession.sharedSession().dataTaskWithURL(postURL) { data, _, error in
+            return
+        }
+        task.resume()
     }
     
     func websocketDidConnect(socket: WebSocket) {

@@ -17,6 +17,7 @@ enum SlackEvent {
     case Other
     
     init?(json: [String: AnyObject]) {
+        print(json)
         guard let eventType = json["type"] as? String else { return nil }
         switch eventType {
         case "message": self = Message(SlackMessage(json: json))

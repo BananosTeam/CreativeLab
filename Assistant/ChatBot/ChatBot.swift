@@ -42,6 +42,8 @@ class ChatBot {
         let finalString = cardTokenTuple.newString
         
         tokens += Tokenizer.tokenize(finalString)
+        
+        print(tokens)
     }
     
     private func userTokens(string: String) -> (tokens: [Token], newString: String) {
@@ -54,6 +56,7 @@ class ChatBot {
                 print("No user match")
                 return tuple
             }
+            if userMatch.range.location == 0 && userMatch.range.length == 0 { return tuple }
             return (tuple.0 + [.User(slackUser.0)],
                     (tuple.1 as NSString).stringByReplacingCharactersInRange(userMatch.range, withString: ""))
         }

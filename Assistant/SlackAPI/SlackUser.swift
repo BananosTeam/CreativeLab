@@ -35,6 +35,11 @@ final class SlackUser {
     }
     
     func nameCombinations() -> [String] {
-        return [self.slackName, self.name, "\(firstName) \(lastName)", "\(lastName) \(firstName)"].flatMap { $0 }
+        var basicNames = [self.slackName, self.name].flatMap { $0 }
+        if let firstName = firstName, lastName = lastName {
+            basicNames += ["\(firstName) \(lastName)", "\(lastName) \(firstName)"]
+        }
+        return basicNames.filter { !$0.isEmpty && !$0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).isEmpty
+        }
     }
 }

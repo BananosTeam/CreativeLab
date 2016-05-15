@@ -19,6 +19,10 @@ enum Token: Equatable {
     case Direction
     case Speak
     
+    case Create
+    case Delete
+    case Update
+    
     case Trello
     case TrelloBoard(Board)
     case TrelloCard(Card)
@@ -35,8 +39,11 @@ enum Token: Equatable {
         case let word where word.hasPrefix("board"): self = TBoard
         case "trelo", "trello": self = Trello
         case "tell", "say", "speak", "answer", "inform", "instruct", "explain", "reveal", "ask": self = Speak
+        case "create", "make", "add": self = Create
+        case "delete", "remove": self = Delete
+        case "update", "refresh", "renew": self = Update
         case "for", "to", "of", "his", "her": self = Direction
-        case "my", "mine", "I": self = CurrentUser
+        case "my", "mine", "I", "me": self = CurrentUser
         case "hi", "hey", "hello", "howdy", "hola", "salut", "noroc", "darow", "morning", "morn": self = Greeting
         default: return nil
         }
@@ -52,6 +59,9 @@ func ==(lhs: Token, rhs: Token) -> Bool {
          (.Direction, .Direction),
          (.Speak, .Speak),
          (.Trello, .Trello),
+         (.Create, .Create),
+         (.Update, .Update),
+         (.Delete, .Delete),
          (.TrelloBoard(_), .TrelloBoard(_)),
          (.TrelloCard(_), .TrelloCard(_)),
          (.TrelloList(_), .TrelloList(_)),

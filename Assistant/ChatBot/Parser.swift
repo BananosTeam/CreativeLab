@@ -11,6 +11,52 @@ import Foundation
 final class Parser {
     static func parse(tokens: [Token]) {
         // Something related to the current user
-        let board: Board?
+        var board: Board?
+        var list: List?
+        var card: Card?
+        var user: SlackUser?
+        
+        var isCurrentUser = tokens.contains(.CurrentUser)
+        var isTask = tokens.contains(.Task)
+        var isBoard = tokens.contains(.TBoard)
+        
+        var isCreate = tokens.contains(.Create)
+        var isDelete = tokens.contains(.Delete)
+        var isUpdate = tokens.contains(.Update)
+        
+        tokens.forEach {
+            switch $0 {
+            case .TrelloList(let trelloList): list = trelloList
+            case .TrelloBoard(let trelloBoard): board = trelloBoard
+            case .TrelloCard(let trelloCard): card = trelloCard
+            case .User(let slackUser): user = slackUser
+            default: break
+            }
+        }
+        
+        if isCurrentUser {
+            if let list = list {
+                if let board = board {
+                    // Fetch specific list of specific board
+                } else {
+                    // Fetch specific list of default board
+                }
+            } else if isTask {
+                // Fetch all tasks
+            }
+        } else {
+            if let user = user {
+                if let list = list {
+                    if let board = board {
+                        // Fetch specific list of specific board for specific user
+                    } else {
+                        // Fetch specific list of default board for specific user
+                    }
+                } else if isTask {
+                    // Fetch all tasks
+                }
+            }
+        }
+        
     }
 }
