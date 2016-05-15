@@ -19,6 +19,8 @@ let SlackAPI = "https://slack.com/api/"
 
 class SlackClient {
     
+    static var currentClient: SlackClient?
+    
     static var Token: String? { return NSUserDefaults.standardUserDefaults().valueForKey(DefaultsSlackAccessTokenKey) as? String }
     
     let accessToken: String

@@ -19,13 +19,22 @@
 		7D7B93531CE71D8700A03DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93511CE71D8700A03DAC /* Main.storyboard */; };
 		7D7B93551CE71D8700A03DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93541CE71D8700A03DAC /* Assets.xcassets */; };
 		7D7B93581CE71D8700A03DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93561CE71D8700A03DAC /* LaunchScreen.storyboard */; };
-		7D7B93611CE73B8200A03DAC /* Dodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7B93601CE73B8200A03DAC /* Dodo.framework */; };
-		7D7B93631CE73B8600A03DAC /* Dodo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7B93601CE73B8200A03DAC /* Dodo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7D7B936E1CE755CE00A03DAC /* MessagesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B936B1CE755CE00A03DAC /* MessagesTableView.swift */; };
-		7D7B936F1CE755CE00A03DAC /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B936C1CE755CE00A03DAC /* MessagesViewController.swift */; };
-		7D7B93701CE755CE00A03DAC /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B936D1CE755CE00A03DAC /* MessageTableViewCell.swift */; };
-		7D7B93721CE755FD00A03DAC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93711CE755FD00A03DAC /* Message.swift */; };
 		7D7B93761CE76CB400A03DAC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93751CE76CB400A03DAC /* String.swift */; };
+		7D7B93791CE7A98600A03DAC /* DataPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93781CE7A98600A03DAC /* DataPersistor.swift */; };
+		7D7B93901CE7C87900A03DAC /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93861CE7C87900A03DAC /* ActivityViewController.swift */; };
+		7D7B93911CE7C87900A03DAC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93881CE7C87900A03DAC /* Message.swift */; };
+		7D7B93921CE7C87900A03DAC /* MessagesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93891CE7C87900A03DAC /* MessagesTableView.swift */; };
+		7D7B93931CE7C87900A03DAC /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B938A1CE7C87900A03DAC /* MessagesViewController.swift */; };
+		7D7B93941CE7C87900A03DAC /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B938B1CE7C87900A03DAC /* MessageTableViewCell.swift */; };
+		7D7B93971CE7C87900A03DAC /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B938F1CE7C87900A03DAC /* StoryboardInstantiable.swift */; };
+		7D7B939B1CE7CA8100A03DAC /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93991CE7CA8100A03DAC /* ENSideMenu.swift */; };
+		7D7B939C1CE7CA8100A03DAC /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B939A1CE7CA8100A03DAC /* ENSideMenuNavigationController.swift */; };
+		7D7B939F1CE7CAC200A03DAC /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B939E1CE7CAC100A03DAC /* SideMenuViewController.swift */; };
+		7D7B93A11CE7CB8800A03DAC /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93A01CE7CB8800A03DAC /* ChannelTableViewCell.swift */; };
+		7D7B93A31CE7CB9900A03DAC /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93A21CE7CB9900A03DAC /* UserTableViewCell.swift */; };
+		7D7B93A51CE7CC7F00A03DAC /* UsersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93A41CE7CC7F00A03DAC /* UsersTableView.swift */; };
+		7D7B93A71CE7CC8E00A03DAC /* ChannelsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93A61CE7CC8E00A03DAC /* ChannelsTableView.swift */; };
+		7D7B93A91CE7D1E100A03DAC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93A81CE7D1E100A03DAC /* NavigationController.swift */; };
 		7DD2ABCA1CE721F70025024C /* SlackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABC91CE721F70025024C /* SlackClient.swift */; };
 		7DD2ABCE1CE73BC80025024C /* SlackAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABCD1CE73BC80025024C /* SlackAuthenticator.swift */; };
 		7DD2ABD01CE73D160025024C /* SlackUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABCF1CE73D160025024C /* SlackUser.swift */; };
@@ -40,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7D7B93631CE73B8600A03DAC /* Dodo.framework in Embed Frameworks */,
 				7D099ABD1CE74BF300CFCC7F /* Starscream.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -62,12 +70,22 @@
 		7D7B93541CE71D8700A03DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D7B93571CE71D8700A03DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D7B93591CE71D8700A03DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D7B93601CE73B8200A03DAC /* Dodo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dodo.framework; sourceTree = "<group>"; };
-		7D7B936B1CE755CE00A03DAC /* MessagesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableView.swift; sourceTree = "<group>"; };
-		7D7B936C1CE755CE00A03DAC /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
-		7D7B936D1CE755CE00A03DAC /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		7D7B93711CE755FD00A03DAC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7D7B93751CE76CB400A03DAC /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		7D7B93781CE7A98600A03DAC /* DataPersistor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataPersistor.swift; path = Assistant/Extensions/DataPersistor.swift; sourceTree = SOURCE_ROOT; };
+		7D7B93861CE7C87900A03DAC /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		7D7B93881CE7C87900A03DAC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7D7B93891CE7C87900A03DAC /* MessagesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableView.swift; sourceTree = "<group>"; };
+		7D7B938A1CE7C87900A03DAC /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		7D7B938B1CE7C87900A03DAC /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		7D7B938F1CE7C87900A03DAC /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		7D7B93991CE7CA8100A03DAC /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
+		7D7B939A1CE7CA8100A03DAC /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		7D7B939E1CE7CAC100A03DAC /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		7D7B93A01CE7CB8800A03DAC /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
+		7D7B93A21CE7CB9900A03DAC /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		7D7B93A41CE7CC7F00A03DAC /* UsersTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
+		7D7B93A61CE7CC8E00A03DAC /* ChannelsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsTableView.swift; sourceTree = "<group>"; };
+		7D7B93A81CE7D1E100A03DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		7DD2ABC91CE721F70025024C /* SlackClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackClient.swift; sourceTree = "<group>"; };
 		7DD2ABCD1CE73BC80025024C /* SlackAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackAuthenticator.swift; sourceTree = "<group>"; };
 		7DD2ABCF1CE73D160025024C /* SlackUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackUser.swift; sourceTree = "<group>"; };
@@ -80,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D7B93611CE73B8200A03DAC /* Dodo.framework in Frameworks */,
 				7DD2ABD21CE745BB0025024C /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,8 +137,9 @@
 		7D7B934C1CE71D8700A03DAC /* Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				7D7B936A1CE755CE00A03DAC /* MessagesView */,
+				7D7B93841CE7C87900A03DAC /* View */,
 				7D7B93741CE76CA700A03DAC /* Extensions */,
+				7D7B93771CE7A97400A03DAC /* DataPersistor */,
 				7DD2ABC61CE7200D0025024C /* SlackAPI */,
 				7D7B934D1CE71D8700A03DAC /* AppDelegate.swift */,
 				7D7B93511CE71D8700A03DAC /* Main.storyboard */,
@@ -135,20 +153,8 @@
 		7D7B935F1CE73B7C00A03DAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7D7B93601CE73B8200A03DAC /* Dodo.framework */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		7D7B936A1CE755CE00A03DAC /* MessagesView */ = {
-			isa = PBXGroup;
-			children = (
-				7D7B93711CE755FD00A03DAC /* Message.swift */,
-				7D7B936C1CE755CE00A03DAC /* MessagesViewController.swift */,
-				7D7B936B1CE755CE00A03DAC /* MessagesTableView.swift */,
-				7D7B936D1CE755CE00A03DAC /* MessageTableViewCell.swift */,
-			);
-			path = MessagesView;
 			sourceTree = "<group>";
 		};
 		7D7B93741CE76CA700A03DAC /* Extensions */ = {
@@ -157,6 +163,67 @@
 				7D7B93751CE76CB400A03DAC /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7D7B93771CE7A97400A03DAC /* DataPersistor */ = {
+			isa = PBXGroup;
+			children = (
+				7D7B93781CE7A98600A03DAC /* DataPersistor.swift */,
+			);
+			path = DataPersistor;
+			sourceTree = "<group>";
+		};
+		7D7B93841CE7C87900A03DAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D7B93981CE7CA8100A03DAC /* SideMenu */,
+				7D7B93851CE7C87900A03DAC /* Activity */,
+				7D7B939D1CE7CA9700A03DAC /* SideMenuTable */,
+				7D7B93871CE7C87900A03DAC /* MessagesView */,
+				7D7B938F1CE7C87900A03DAC /* StoryboardInstantiable.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D7B93851CE7C87900A03DAC /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				7D7B93861CE7C87900A03DAC /* ActivityViewController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		7D7B93871CE7C87900A03DAC /* MessagesView */ = {
+			isa = PBXGroup;
+			children = (
+				7D7B93881CE7C87900A03DAC /* Message.swift */,
+				7D7B93891CE7C87900A03DAC /* MessagesTableView.swift */,
+				7D7B938A1CE7C87900A03DAC /* MessagesViewController.swift */,
+				7D7B938B1CE7C87900A03DAC /* MessageTableViewCell.swift */,
+			);
+			path = MessagesView;
+			sourceTree = "<group>";
+		};
+		7D7B93981CE7CA8100A03DAC /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				7D7B93991CE7CA8100A03DAC /* ENSideMenu.swift */,
+				7D7B939A1CE7CA8100A03DAC /* ENSideMenuNavigationController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		7D7B939D1CE7CA9700A03DAC /* SideMenuTable */ = {
+			isa = PBXGroup;
+			children = (
+				7D7B93A81CE7D1E100A03DAC /* NavigationController.swift */,
+				7D7B939E1CE7CAC100A03DAC /* SideMenuViewController.swift */,
+				7D7B93A41CE7CC7F00A03DAC /* UsersTableView.swift */,
+				7D7B93A61CE7CC8E00A03DAC /* ChannelsTableView.swift */,
+				7D7B93A01CE7CB8800A03DAC /* ChannelTableViewCell.swift */,
+				7D7B93A21CE7CB9900A03DAC /* UserTableViewCell.swift */,
+			);
+			path = SideMenuTable;
 			sourceTree = "<group>";
 		};
 		7DD2ABC61CE7200D0025024C /* SlackAPI */ = {
@@ -207,7 +274,7 @@
 				TargetAttributes = {
 					7D7B93491CE71D8700A03DAC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QE33WF5A23;
+						DevelopmentTeam = 9XTDAT7GE2;
 					};
 				};
 			};
@@ -247,23 +314,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D7B93A51CE7CC7F00A03DAC /* UsersTableView.swift in Sources */,
 				7D099AD11CE78C0D00CFCC7F /* AppDelegate.swift in Sources */,
 				7D7B93761CE76CB400A03DAC /* String.swift in Sources */,
-				7D7B936F1CE755CE00A03DAC /* MessagesViewController.swift in Sources */,
-				7D7B93701CE755CE00A03DAC /* MessageTableViewCell.swift in Sources */,
-				7D7B93721CE755FD00A03DAC /* Message.swift in Sources */,
-				7D7B936E1CE755CE00A03DAC /* MessagesTableView.swift in Sources */,
 				7DD2ABD41CE745C70025024C /* SlackRealtimeMessager.swift in Sources */,
 				7DD2ABCE1CE73BC80025024C /* SlackAuthenticator.swift in Sources */,
+				7D7B93941CE7C87900A03DAC /* MessageTableViewCell.swift in Sources */,
 				7D099ACA1CE7777500CFCC7F /* SlackTeam.swift in Sources */,
 				7DD2ABCA1CE721F70025024C /* SlackClient.swift in Sources */,
+				7D7B93971CE7C87900A03DAC /* StoryboardInstantiable.swift in Sources */,
 				7D099AC71CE76D6A00CFCC7F /* SlackFetcher.swift in Sources */,
+				7D7B939B1CE7CA8100A03DAC /* ENSideMenu.swift in Sources */,
 				7D099AC51CE765C300CFCC7F /* SlackChannel.swift in Sources */,
+				7D7B93921CE7C87900A03DAC /* MessagesTableView.swift in Sources */,
 				7D099ACC1CE777E400CFCC7F /* SRMRetriever.swift in Sources */,
 				7D099ABF1CE75EE600CFCC7F /* SRMDelegate.swift in Sources */,
+				7D7B93A31CE7CB9900A03DAC /* UserTableViewCell.swift in Sources */,
 				7D099AC11CE75F0200CFCC7F /* SlackEvent.swift in Sources */,
+				7D7B93A91CE7D1E100A03DAC /* NavigationController.swift in Sources */,
+				7D7B93931CE7C87900A03DAC /* MessagesViewController.swift in Sources */,
+				7D7B93791CE7A98600A03DAC /* DataPersistor.swift in Sources */,
+				7D7B93A11CE7CB8800A03DAC /* ChannelTableViewCell.swift in Sources */,
 				7D099AC31CE7641A00CFCC7F /* SlackMessage.swift in Sources */,
+				7D7B93911CE7C87900A03DAC /* Message.swift in Sources */,
+				7D7B93901CE7C87900A03DAC /* ActivityViewController.swift in Sources */,
+				7D7B939C1CE7CA8100A03DAC /* ENSideMenuNavigationController.swift in Sources */,
+				7D7B939F1CE7CAC200A03DAC /* SideMenuViewController.swift in Sources */,
 				7DD2ABD01CE73D160025024C /* SlackUser.swift in Sources */,
+				7D7B93A71CE7CC8E00A03DAC /* ChannelsTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +464,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.AssistantApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -406,7 +484,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.AssistantApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

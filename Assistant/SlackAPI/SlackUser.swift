@@ -20,15 +20,15 @@ struct SlackUser {
     init?(json: [String: AnyObject]) {
         guard let id = json["id"] as? String,
             slackName = json["name"] as? String,
-            profile = json["profile"] as? [String: String],
-            image = profile["image_48"] else {
+            profile = json["profile"] as? [String: AnyObject],
+            image = profile["image_48"] as? String else {
                 return nil
         }
         self.id = id
         self.slackName = slackName
-        firstName = profile["first_name"]
-        lastName = profile["last_name"]
-        name = profile["real_name"]
+        firstName = profile["first_name"] as? String
+        lastName = profile["last_name"] as? String
+        name = profile["real_name"] as? String
         imageURL = image
         presence = false
     }
