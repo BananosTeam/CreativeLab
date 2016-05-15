@@ -70,13 +70,13 @@ struct SlackFetcher {
     }
     
     static func FetchUserInfo(tokenQuery: String, userID: String , callback: SlackUser? -> ()) {
-        guard let userURL = NSURL(string: SlackAPI + "user.info?user=\(userID)" + tokenQuery) else {
+        guard let userURL = NSURL(string: SlackAPI + "users.info?user=\(userID)&" + tokenQuery) else {
             return callback(nil)
         }
         let task = NSURLSession.sharedSession().dataTaskWithURL(userURL) { data, _, error in
             guard let data = data,
                 json = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)),
-                dictionary = json as? [String: AnyObject],
+                dictionary = json["user"] as? [String: AnyObject],
                 user = SlackUser(json: dictionary) else {
                     return callback(nil)
             }

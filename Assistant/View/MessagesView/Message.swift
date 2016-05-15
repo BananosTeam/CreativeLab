@@ -12,6 +12,6 @@ enum MessageType {
 }
 
 struct Message {
-    let message: String
+    let slackMessage: SlackMessage
     let messageType: MessageType
 }

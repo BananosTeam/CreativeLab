@@ -7,18 +7,14 @@
 //
 
 import UIKit
-import Dodo
 
-final class MessagesViewController: UIViewController, UITextFieldDelegate, SRMDelegate {
+final class MessagesViewController: UIViewController, UITextFieldDelegate, StoryboardInstantiable {
+    static let ControllerIdentifier = "MessagesViewController"
     @IBOutlet weak var messagesTableView: MessagesTableView!
     @IBOutlet weak var typeMessageTextView: UITextField!
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var typeMessageViewBottomConstraint: NSLayoutConstraint!
-    
-    var client: SlackClient? {
-        didSet { self.client?.start() }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMessagesTableView()
@@ -27,13 +23,11 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, SRMDe
         typeMessageTextView.delegate = self
     }
     
-    func setUserOrChannelName(name: String) {
-        navigationController?.navigationBar.topItem?.title = name
-    }
-    
     private func setupMessagesTableView() {
         messagesTableView.dataSource = messagesTableView
         messagesTableView.delegate = messagesTableView
+        messagesTableView.estimatedRowHeight = 30
+        messagesTableView.rowHeight = UITableViewAutomaticDimension
     }
     
     private func setupKeyboardNotifications() {
@@ -41,11 +35,8 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, SRMDe
                                                          name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide),
                                                          name:UIKeyboardWillHideNotification, object: nil)
-    }
-    
-    // MARK: SRMRetriever
-    
-    func eventReceived(event: SlackEvent) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardSizeWillChange),
+                                                         name:UIKeyboardWillChangeFrameNotification, object: nil)
 
     }
     
@@ -53,15 +44,21 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, SRMDe
     
     @IBAction func sendMessage(sender: AnyObject) {
         guard let messageText = typeMessageTextView.text else { return }
-        messagesTableView.addMessage(Message(message: messageText, messageType: .FromMe))
+        let slackMessage = SlackMessage(json: ["text": messageText])
+        if arc4random_uniform(2) == 0 {
+            DataPersistor.sharedPersistor.addMessage(Message(slackMessage:slackMessage, messageType: .FromMe))
+            messagesTableView.reloadLastMessage()
+        } else {
+            DataPersistor.sharedPersistor.addMessage(Message(slackMessage:slackMessage, messageType: .ToMe))
+            messagesTableView.reloadLastMessage()
+        }
         typeMessageTextView.text = nil
-        sendMessageButton.enabled = false
     }
     
     // MARK: Keyboard
     
     func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() else {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() else {
             return
         }
         UIView.animateWithDuration(0.3) {
@@ -72,14 +69,20 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, SRMDe
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() else {
-            return
-        }
         UIView.animateWithDuration(0.3) {
-            self.typeMessageViewBottomConstraint.constant = keyboardFrame.size.height
+            self.typeMessageViewBottomConstraint.constant = 0
             self.view.setNeedsLayout()
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func keyboardSizeWillChange(notification: NSNotification) {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() else {
+            return
+        }
+        typeMessageViewBottomConstraint.constant = keyboardFrame.size.height
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
     
     // UITextFieldDelegate
@@ -91,6 +94,12 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, SRMDe
         } else {
             sendMessageButton.enabled = true
         }
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        guard let text = textField.text where text != "" else { return false }
+        sendMessage(sendMessageButton)
         return true
     }
 }
