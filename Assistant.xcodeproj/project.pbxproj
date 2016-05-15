@@ -521,7 +521,7 @@
 				TargetAttributes = {
 					7D7B93491CE71D8700A03DAC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QE33WF5A23;
+						DevelopmentTeam = 9XTDAT7GE2;
 					};
 				};
 			};
@@ -858,7 +858,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -879,7 +879,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

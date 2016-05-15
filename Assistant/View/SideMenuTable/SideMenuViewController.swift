@@ -34,6 +34,15 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
         return true
     }
     
+    func sideMenuWillOpen() {
+        if channelsTableView.indexPathForSelectedRow == nil && usersTableView.indexPathForSelectedRow == nil {
+            channelsTableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: .None)
+        }
+        guard let messagesVC = (sideMenuController() as? NavigationController)?.childViewControllers.first
+            as? MessagesViewController else { return }
+        messagesVC.typeMessageTextView.resignFirstResponder()
+    }
+    
     // MARK: UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -44,22 +53,29 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
             usersTableView.deselectSelectedUser()
             handleChannelSelectionAtIndex(indexPath.row)
         }
+        sideMenuController()?.sideMenu?.hideSideMenu()
     }
     
     private func handleUserSelectionAtIndex(index: Int) {
-        debugPrint("User selected at index \(index)")
+        guard let messagesVC = (sideMenuController() as? NavigationController)?.childViewControllers.first
+            as? MessagesViewController else { return }
+        messagesVC.currentOpenChannel = nil
+        messagesVC.currentOpenChannelWithUser = DataPersistor.sharedPersistor.users[index]
     }
     
     private func handleChannelSelectionAtIndex(index: Int) {
         guard let messagesVC = (sideMenuController() as? NavigationController)?.childViewControllers.first
             as? MessagesViewController else { return }
         messagesVC.currentOpenChannel = DataPersistor.sharedPersistor.channels[index]
+        messagesVC.currentOpenChannelWithUser = nil
     }
     
     // MARK: SRMDelegate
     
     func eventReceived(event: SlackEvent) {
-        debugPrint(event)
+        if case .Message(let message) = event {
+            DataPersistor.sharedPersistor.addMessage(Message(slackMessage: message, messageType: .ToMe))
+        }
     }
     
     // MARK: SRMRetriever

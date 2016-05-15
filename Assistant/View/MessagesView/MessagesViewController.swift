@@ -8,14 +8,26 @@
 
 import UIKit
 
-final class MessagesViewController: UIViewController, UITextFieldDelegate, StoryboardInstantiable {
+final class MessagesViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, StoryboardInstantiable {
     static let ControllerIdentifier = "MessagesViewController"
     @IBOutlet weak var messagesTableView: MessagesTableView!
     @IBOutlet weak var typeMessageTextView: UITextField!
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var typeMessageViewBottomConstraint: NSLayoutConstraint!
 
-    var currentOpenChannel: SlackChannel?
+    var currentOpenChannel: SlackChannel? {
+        didSet {
+            guard let name = currentOpenChannel?.name else { return }
+            navigationItem.title = name
+        }
+    }
+    
+    var currentOpenChannelWithUser: SlackUser? {
+        didSet {
+            guard let name = currentOpenChannelWithUser?.slackName else { return }
+            navigationItem.title = name
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +38,7 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, Story
     }
     
     private func setupMessagesTableView() {
-        messagesTableView.dataSource = messagesTableView
-        messagesTableView.delegate = messagesTableView
+        messagesTableView.dataSource = self
         messagesTableView.estimatedRowHeight = 30
         messagesTableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -44,8 +55,12 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, Story
     // MARK: Actions
     
     @IBAction func sendMessage(sender: AnyObject) {
-        guard let messageText = typeMessageTextView.text, currentOpenChannel = currentOpenChannel else { return }
-        SlackClient.currentClient?.messager.sendMessage(messageText, channel: currentOpenChannel.id)
+        guard let messageText = typeMessageTextView.text else { return }
+        if let currentOpenChannel = currentOpenChannel {
+            SlackClient.currentClient?.messager.sendMessage(messageText, channel: currentOpenChannel.id)
+        } else if let currentOpenChannelWithUser = currentOpenChannelWithUser {
+            SlackClient.currentClient?.messager.sendMessage(messageText, channel: currentOpenChannelWithUser.id)
+        }
         typeMessageTextView.text = nil
     }
     
@@ -95,5 +110,62 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, Story
         guard let text = textField.text where text != "" else { return false }
         sendMessage(sendMessageButton)
         return true
+    }
+    
+    // MARK: UITableViewDataSource
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let currentChannel = currentOpenChannel {
+            return DataPersistor.sharedPersistor.messagesForChannel(currentChannel.id).count
+        } else if let currentUser = currentOpenChannelWithUser {
+            return DataPersistor.sharedPersistor.messagesForUser(currentUser.id).count
+        }
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var messages = [Message]()
+        if let currentChannel = currentOpenChannel {
+            messages =  DataPersistor.sharedPersistor.messagesForChannel(currentChannel.id)
+        } else if let currentUser = currentOpenChannelWithUser {
+            messages = DataPersistor.sharedPersistor.messagesForUser(currentUser.id)
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier(MessageTableViewCell.ReuseIdentifier) as! MessageTableViewCell
+        cell.configureWithMessage(messages[indexPath.row])
+        return cell
+    }
+    
+    func reloadLastMessage() {
+        updateLastCell()
+    }
+    
+    // MARK: Private methods
+    
+    private func updateLastCell() {
+        var messages = [Message]()
+        if let currentChannel = currentOpenChannel {
+            messages =  DataPersistor.sharedPersistor.messagesForChannel(currentChannel.id)
+        } else if let currentUser = currentOpenChannelWithUser {
+            messages = DataPersistor.sharedPersistor.messagesForUser(currentUser.id)
+        }
+        let indexPathsToInsert = NSIndexPath(forRow: messages.count - 1, inSection: 0)
+        messagesTableView.beginUpdates()
+        messagesTableView.insertRowsAtIndexPaths([indexPathsToInsert], withRowAnimation: rowAnimationForLastMessage)
+        messagesTableView.endUpdates()
+        messagesTableView.scrollToRowAtIndexPath(indexPathsToInsert, atScrollPosition: .Bottom, animated: true)
+    }
+    
+    private var rowAnimationForLastMessage: UITableViewRowAnimation {
+        var messages = [Message]()
+        if let currentChannel = currentOpenChannel {
+            messages =  DataPersistor.sharedPersistor.messagesForChannel(currentChannel.id)
+        } else if let currentUser = currentOpenChannelWithUser {
+            messages = DataPersistor.sharedPersistor.messagesForUser(currentUser.id)
+        }
+        guard let lastMessage = messages.last else { return .None }
+        switch lastMessage.messageType {
+        case .ToMe: return .Left
+        case .FromMe: return .Right
+        }
     }
 }

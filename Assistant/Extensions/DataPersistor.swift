@@ -37,6 +37,14 @@ final class DataPersistor {
         return nil
     }
     
+    func messagesForChannel(id: String) -> [Message] {
+        return messages.filter { $0.slackMessage.channel == id }
+    }
+    
+    func messagesForUser(id: String) -> [Message] {
+        return messages.filter { $0.slackMessage.user == id }
+    }
+    
     func addUsers(users: [SlackUser]) {
         self.users.appendContentsOf(users)
     }
