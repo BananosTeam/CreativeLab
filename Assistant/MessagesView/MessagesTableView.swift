@@ -54,6 +54,7 @@ final class MessagesTableView: UITableView, UITableViewDelegate, UITableViewData
                 }
                 setNeedsLayout()
                 layoutIfNeeded()
+                
                 return cell
             } else {
                 return UITableViewCell(style: .Default, reuseIdentifier: "DefaltCellReuseIdentifier")

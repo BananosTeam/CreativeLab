@@ -11,7 +11,6 @@ import Foundation
 enum MemberType: String {
     case Normal = "normal"
     case Admin = "admin"
-    
 }
 
 final class BoardMember {

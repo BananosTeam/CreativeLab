@@ -32,4 +32,8 @@ struct SlackUser {
         imageURL = image
         presence = false
     }
+    
+    func nameCombinations() -> [String] {
+        return [self.slackName, self.name, "\(firstName) \(lastName)", "\(lastName) \(firstName)"].flatMap { $0 }
+    }
 }

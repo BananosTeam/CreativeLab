@@ -15,10 +15,14 @@
 		7D099AC71CE76D6A00CFCC7F /* SlackFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099AC61CE76D6A00CFCC7F /* SlackFetcher.swift */; };
 		7D099ACA1CE7777500CFCC7F /* SlackTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099AC91CE7777500CFCC7F /* SlackTeam.swift */; };
 		7D099ACC1CE777E400CFCC7F /* SRMRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099ACB1CE777E400CFCC7F /* SRMRetriever.swift */; };
+		7D099AD11CE78C0D00CFCC7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B934D1CE71D8700A03DAC /* AppDelegate.swift */; };
+		7D099AE51CE7D36200CFCC7F /* ChatBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099AE21CE7D36200CFCC7F /* ChatBot.swift */; };
+		7D099AE61CE7D36200CFCC7F /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099AE31CE7D36200CFCC7F /* Token.swift */; };
+		7D099AE71CE7D36200CFCC7F /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099AE41CE7D36200CFCC7F /* Tokenizer.swift */; };
+		7D099AF51CE7E25B00CFCC7F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099AF41CE7E25A00CFCC7F /* Parser.swift */; };
 		7D099B481CE7FEC500CFCC7F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93751CE76CB400A03DAC /* String.swift */; };
 		7D099B491CE7FEC500CFCC7F /* SlackAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABCD1CE73BC80025024C /* SlackAuthenticator.swift */; };
 		7D099B4A1CE7FEC500CFCC7F /* SlackRealtimeMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABD31CE745C70025024C /* SlackRealtimeMessager.swift */; };
-		7D099B4C1CE7FEE700CFCC7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B934D1CE71D8700A03DAC /* AppDelegate.swift */; };
 		7D7B93531CE71D8700A03DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93511CE71D8700A03DAC /* Main.storyboard */; };
 		7D7B93551CE71D8700A03DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93541CE71D8700A03DAC /* Assets.xcassets */; };
 		7D7B93581CE71D8700A03DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93561CE71D8700A03DAC /* LaunchScreen.storyboard */; };
@@ -209,6 +213,10 @@
 		7D099AC61CE76D6A00CFCC7F /* SlackFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackFetcher.swift; sourceTree = "<group>"; };
 		7D099AC91CE7777500CFCC7F /* SlackTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackTeam.swift; sourceTree = "<group>"; };
 		7D099ACB1CE777E400CFCC7F /* SRMRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRMRetriever.swift; sourceTree = "<group>"; };
+		7D099AE21CE7D36200CFCC7F /* ChatBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBot.swift; sourceTree = "<group>"; };
+		7D099AE31CE7D36200CFCC7F /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		7D099AE41CE7D36200CFCC7F /* Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
+		7D099AF41CE7E25A00CFCC7F /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		7D7B934A1CE71D8700A03DAC /* Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7B934D1CE71D8700A03DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D7B93521CE71D8700A03DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -276,6 +284,17 @@
 			name = DataTypes;
 			sourceTree = "<group>";
 		};
+		7D099AE11CE7D36200CFCC7F /* ChatBot */ = {
+			isa = PBXGroup;
+			children = (
+				7D099AE21CE7D36200CFCC7F /* ChatBot.swift */,
+				7D099AE31CE7D36200CFCC7F /* Token.swift */,
+				7D099AE41CE7D36200CFCC7F /* Tokenizer.swift */,
+				7D099AF41CE7E25A00CFCC7F /* Parser.swift */,
+			);
+			path = ChatBot;
+			sourceTree = "<group>";
+		};
 		7D7B93411CE71D8700A03DAC = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				7D7B93841CE7C87900A03DAC /* View */,
+				7D099AE11CE7D36200CFCC7F /* ChatBot */,
 				7D7B93741CE76CA700A03DAC /* Extensions */,
 				7D7B93771CE7A97400A03DAC /* DataPersistor */,
 				7DD2ABC61CE7200D0025024C /* SlackAPI */,
@@ -651,11 +671,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D099B4C1CE7FEE700CFCC7F /* AppDelegate.swift in Sources */,
 				7D099B481CE7FEC500CFCC7F /* String.swift in Sources */,
 				7D099B491CE7FEC500CFCC7F /* SlackAuthenticator.swift in Sources */,
 				7D099B4A1CE7FEC500CFCC7F /* SlackRealtimeMessager.swift in Sources */,
 				B19D04031CE7DDA100CB8BA6 /* TrelloDataHolder.swift in Sources */,
+				7D099AE51CE7D36200CFCC7F /* ChatBot.swift in Sources */,
+				7D099AD11CE78C0D00CFCC7F /* AppDelegate.swift in Sources */,
 				B19D04131CE7F01900CB8BA6 /* TrelloInterface.swift in Sources */,
 				B19D04111CE7E21900CB8BA6 /* Member.swift in Sources */,
 				7D7B93A51CE7CC7F00A03DAC /* UsersTableView.swift in Sources */,
@@ -663,6 +684,7 @@
 				7D099ACA1CE7777500CFCC7F /* SlackTeam.swift in Sources */,
 				7DD2ABCA1CE721F70025024C /* SlackClient.swift in Sources */,
 				7D7B93971CE7C87900A03DAC /* StoryboardInstantiable.swift in Sources */,
+				7D099AE61CE7D36200CFCC7F /* Token.swift in Sources */,
 				7D099AC71CE76D6A00CFCC7F /* SlackFetcher.swift in Sources */,
 				7D7B939B1CE7CA8100A03DAC /* ENSideMenu.swift in Sources */,
 				7D099AC51CE765C300CFCC7F /* SlackChannel.swift in Sources */,
@@ -682,11 +704,13 @@
 				7D7B939F1CE7CAC200A03DAC /* SideMenuViewController.swift in Sources */,
 				7DD2ABD01CE73D160025024C /* SlackUser.swift in Sources */,
 				B159DD9D1CE7635700129DC7 /* Trello.swift in Sources */,
+				7D099AF51CE7E25B00CFCC7F /* Parser.swift in Sources */,
 				B1489F701CE7B08E00B84213 /* List.swift in Sources */,
 				B1489F6E1CE7AADD00B84213 /* BoardMember.swift in Sources */,
 				B19D03E61CE7C21800CB8BA6 /* NSData+Trello.swift in Sources */,
 				B1489F6C1CE7A82B00B84213 /* Board.swift in Sources */,
 				B159DD9F1CE767CC00129DC7 /* TrelloRequester.swift in Sources */,
+				7D099AE71CE7D36200CFCC7F /* Tokenizer.swift in Sources */,
 				B19D03D71CE7B9BD00CB8BA6 /* Card.swift in Sources */,
 				7D7B93A71CE7CC8E00A03DAC /* ChannelsTableView.swift in Sources */,
 			);
