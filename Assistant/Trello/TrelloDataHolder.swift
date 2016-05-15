@@ -41,7 +41,15 @@ final class TrelloDataHandler {
     private func getListsForBoardId(id: String) {
         requester.getLists(id, callback: { (list) in
             if let newItems = list {
-                self.lists += newItems
+                newItems.forEach() {
+                    let existiogMembersIds = self.members.flatMap() { $0.id }
+                    if let id = $0.id where !existiogMembersIds.contains(id) {
+                        self.lists += newItems
+                    }
+                }
+            }
+            if let listId = self.lists.first?.id {
+                CardCRUD().createCard(listId)
             }
         })
     }
@@ -49,7 +57,15 @@ final class TrelloDataHandler {
     private func getCardsForBordId(id: String) {
         requester.getCards(id, callback: { (cards) in
             if let newItems = cards {
-                self.cards += newItems
+                newItems.forEach() {
+                    let existiogMembersIds = self.members.flatMap() { $0.id }
+                    if let id = $0.id where !existiogMembersIds.contains(id) {
+                        self.cards += newItems
+                    }
+                }
+            }
+            if let cardId = self.cards.first?.id {
+                CardCRUD().deleteCard(cardId)
             }
         })
     }

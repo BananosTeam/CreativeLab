@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-private let TrelloURL = "https://api.trello.com/1"
+let TrelloURL = "https://api.trello.com/1"
 
 final class TrelloRequester {
     
