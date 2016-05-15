@@ -13,4 +13,11 @@ extension String {
         let attributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.blackColor()]
         return (self as NSString).sizeWithAttributes(attributes)
     }
+    
+    func stringByAddingPercentEncodingForRFC3986() -> String? {
+        let unreserved = "-._~/?"
+        let allowed = NSMutableCharacterSet.alphanumericCharacterSet()
+        allowed.addCharactersInString(unreserved)
+        return stringByAddingPercentEncodingWithAllowedCharacters(allowed)
+    }
 }

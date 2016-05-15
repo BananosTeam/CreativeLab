@@ -27,6 +27,7 @@ class SlackClient {
     var tokenQuery: String { return "token=" + accessToken }
     
     let messager: SlackRealtimeMessager
+    let bot: ChatBot
     
     var dataRetriever: SRMRetriever? {
         get {
@@ -47,6 +48,7 @@ class SlackClient {
         guard let token = SlackClient.Token else {
             return nil
         }
+        bot = ChatBot()
         accessToken = token
         messager = SlackRealtimeMessager(tokenQuery: "token=" + accessToken)
     }

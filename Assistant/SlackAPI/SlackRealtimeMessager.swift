@@ -18,7 +18,7 @@ class SlackRealtimeMessager: WebSocketDelegate {
     
     let tokenQuery: String
     
-    private var id = 1000
+    private var id = 1
     
     init(tokenQuery: String) {
         self.tokenQuery = tokenQuery
@@ -68,7 +68,9 @@ class SlackRealtimeMessager: WebSocketDelegate {
 //            return
 //        }
 //        socket?.writeData(data)
-        guard let postURL = NSURL(string: SlackAPI + "chat.postMessage?channel=\(channel)&text=\(message)&" + tokenQuery) else {
+        
+        guard let encodedMessage = message.stringByAddingPercentEncodingForRFC3986(),
+            postURL = NSURL(string: SlackAPI + "chat.postMessage?channel=\(channel)&text=\(encodedMessage)&" + tokenQuery) else {
             return
         }
         let task = NSURLSession.sharedSession().dataTaskWithURL(postURL) { data, _, error in

@@ -298,7 +298,6 @@
 		7D7B93411CE71D8700A03DAC = {
 			isa = PBXGroup;
 			children = (
-				7D7B935F1CE73B7C00A03DAC /* Frameworks */,
 				7D7B934C1CE71D8700A03DAC /* Assistant */,
 				7D7B934B1CE71D8700A03DAC /* Products */,
 			);
@@ -328,13 +327,6 @@
 				7D7B93591CE71D8700A03DAC /* Info.plist */,
 			);
 			path = Assistant;
-			sourceTree = "<group>";
-		};
-		7D7B935F1CE73B7C00A03DAC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		7D7B93741CE76CA700A03DAC /* Extensions */ = {
@@ -521,7 +513,7 @@
 				TargetAttributes = {
 					7D7B93491CE71D8700A03DAC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 9XTDAT7GE2;
+						DevelopmentTeam = QE33WF5A23;
 					};
 				};
 			};
@@ -858,7 +850,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -879,7 +871,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

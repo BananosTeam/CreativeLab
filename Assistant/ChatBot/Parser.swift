@@ -23,6 +23,8 @@ final class Parser {
         var isCreate = tokens.contains(.Create)
         var isDelete = tokens.contains(.Delete)
         var isUpdate = tokens.contains(.Update)
+        var isGreeting = tokens.contains(.Greeting)
+        var isSpeak = tokens.contains(.Speak)
         
         tokens.forEach {
             switch $0 {
@@ -44,18 +46,22 @@ final class Parser {
             } else if isTask {
                 // Fetch all tasks
             }
-        } else {
-            if let user = user {
-                if let list = list {
-                    if let board = board {
-                        // Fetch specific list of specific board for specific user
-                    } else {
-                        // Fetch specific list of default board for specific user
-                    }
-                } else if isTask {
-                    // Fetch all tasks
+        } else if let user = user {
+            if let list = list {
+                if let board = board {
+                    // Fetch specific list of specific board for specific user
+                } else {
+                    // Fetch specific list of default board for specific user
                 }
+            } else if isTask {
+                // Fetch all tasks for a specific user
+            } else if isCreate {
+                
+            } else if isSpeak {
+                SlackClient.currentClient?.messager.sendMessage("Hey \(user.slackName), howdy", channel: user.id)
             }
+        } else if isCreate {
+            // Create something :D
         }
         
     }

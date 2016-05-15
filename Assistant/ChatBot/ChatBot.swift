@@ -10,12 +10,12 @@ import Foundation
 
 class ChatBot {
     
-    let slackUsers: [SlackUser]
-    let boards: [Board]
-    let lists: [List]
-    let cards: [Card]
+    var slackUsers: [SlackUser]
+    var boards: [Board]
+    var lists: [List]
+    var cards: [Card]
     
-    init(slackUsers: [SlackUser], boards: [Board], lists: [List], cards: [Card]) {
+    init(slackUsers: [SlackUser] = [], boards: [Board] = [], lists: [List] = [], cards: [Card] = []) {
         self.slackUsers = slackUsers
         self.boards = boards
         self.lists = lists
@@ -43,7 +43,7 @@ class ChatBot {
         
         tokens += Tokenizer.tokenize(finalString)
         
-        print(tokens)
+        Parser.parse(tokens)
     }
     
     private func userTokens(string: String) -> (tokens: [Token], newString: String) {
@@ -57,8 +57,9 @@ class ChatBot {
                 return tuple
             }
             if userMatch.range.location == 0 && userMatch.range.length == 0 { return tuple }
-            return (tuple.0 + [.User(slackUser.0)],
-                    (tuple.1 as NSString).stringByReplacingCharactersInRange(userMatch.range, withString: ""))
+            let finalString = (tuple.1 as NSString).stringByReplacingCharactersInRange(userMatch.range, withString: "")
+            print("Found user \(slackUser.0.slackName)")
+            return (tuple.0 + [.User(slackUser.0)], finalString)
         }
     }
     

@@ -17,7 +17,7 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
     @IBOutlet weak var usersTableView: UsersTableView!
     @IBOutlet weak var fetchingUsersActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var fetchingChannelsActivityIndicator: UIActivityIndicatorView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         channelsTableView.delegate = self
@@ -87,11 +87,14 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
     // MARK: SRMRetriever
     
     func setUsers(callback: [SlackUser]) {
+        SlackClient.currentClient?.bot.slackUsers = callback
         DataPersistor.sharedPersistor.addUsers(callback)
         usersTableView.reloadData()
         let trello = TrelloInterface()
         trello.populateSlackUsersWIthTrelloMembers()
         fetchingUsersActivityIndicator.stopAnimating()
+        
+        
     }
     
     func setChannels(callback: [SlackChannel]) {

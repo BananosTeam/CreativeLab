@@ -45,6 +45,7 @@ final class TrelloRequester {
             if let responseData = $0?.result.value as? NSArray {
                 let cardsArray = responseData.flatMap() { $0 as? NSDictionary }
                 let cards = CardParser().cardsFromDictionaties(cardsArray)
+                SlackClient.currentClient?.bot.cards = cards
                 callback(cards)
             } else {
                 callback(nil)
@@ -58,6 +59,7 @@ final class TrelloRequester {
             if let responseData = $0?.result.value as? NSArray {
                 let boardsArray = responseData.flatMap() { $0 as? NSDictionary }
                 let boards = BoardParser().boardsFromDictionaties(boardsArray)
+                SlackClient.currentClient?.bot.boards = boards
                 callback(boards)
             } else {
                 callback(nil)
@@ -71,6 +73,7 @@ final class TrelloRequester {
             if let responseData = $0?.result.value as? NSArray {
                 let listsArray = responseData.flatMap() { $0 as? NSDictionary }
                 let lists = ListParser().listsFromDictionaties(listsArray)
+                SlackClient.currentClient?.bot.lists = lists
                 callback(lists)
             } else {
                 callback(nil)
