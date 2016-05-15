@@ -12,7 +12,7 @@ final class Parser {
     
     private static let trello = TrelloInterface()
     
-    static func parse(tokens: [Token]) {
+    static func parse(tokens: [Token], callback: (String) -> ()) {
         // Something related to the current user
         var board: Board?
         var list: List?
@@ -39,45 +39,44 @@ final class Parser {
             }
         }
         
-        if isCurrentUser {
-            if let list = list {
-                if let board = board {
-                    // Fetch specific list of specific board
-                    let allLists = trello.currentUserLists.filter() { $0.idBoard == board.id }
-                    let chosenList = allLists.filter() { $0.id == list.id }.first
-                    let listCards = trello.currentUserCards.filter() { $0.idList == chosenList?.id }
-                    print(listCards)
-                } else {
-                    // Fetch specific list of default board
-                    let chosenList = trello.currentUserLists.filter() { $0.id == list.id }.first
-                    let allCards = trello.currentUserCards.filter() { $0.idList == chosenList?.id }
-                    print(allCards)
-                }
-            } else if isTask {
-                // Fetch all tasks
-                let allTask = trello.currentUserCards
-                print(allTask)
-            }
-        } else if let user = user {
+        if let user = user {
             if let list = list {
                 guard let trelloMemberId = user.trelloUser?.id else { return }
                 let tasks = trello.currentUserCards.filter() { $0.idList == list.id }
-                let filteredTasks = tasks.filter() { $0.idMembers?.contains(trelloMemberId) ?? false }
-                print(filteredTasks)
+                trello.getCardsForMemberId(trelloMemberId, callback: { (cards) in
+                    callback("* " + tasks.unique.flatMap({ $0.name }).joinWithSeparator("\n* "))
+                })
             } else if isTask {
                 // Fetch all tasks for a specific user
                 guard let trelloMemberId = user.trelloUser?.id else { return }
                 let filteredTasks = trello.currentUserCards.filter() {
                     $0.idMembers?.contains(trelloMemberId) ?? false
                 }
-                print(filteredTasks)
+                callback("* " + filteredTasks.flatMap({ $0.name }).joinWithSeparator("\n* "))
             } else if isCreate {
                 
             } else if isSpeak {
                 SlackClient.currentClient?.messager.sendMessage("Hey \(user.slackName), howdy", channel: user.id)
             }
-        } else if isCreate {
-            // Create something :D
+        } else {
+            if let list = list {
+                if let board = board {
+                    // Fetch specific list of specific board
+                    let allLists = trello.currentUserLists.filter() { $0.idBoard == board.id }
+                    let chosenList = allLists.filter() { $0.id == list.id }.first
+                    let listCards = trello.currentUserCards.filter() { $0.idList == chosenList?.id }
+                    callback("* " + listCards.flatMap({ $0.name }).joinWithSeparator("\n* "))
+                } else {
+                    // Fetch specific list of default board
+                    let chosenList = trello.currentUserLists.filter() { $0.id == list.id }.first
+                    let allCards = trello.currentUserCards.filter() { $0.idList == chosenList?.id }
+                    callback("* " + allCards.flatMap({ $0.name }).joinWithSeparator("\n* "))
+                }
+            } else if isTask {
+                // Fetch all tasks
+                let allTask = trello.currentUserCards
+                callback("* " + allTask.flatMap({ $0.name }).joinWithSeparator("\n* "))
+            }
         }
         
     }

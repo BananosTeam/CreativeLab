@@ -22,7 +22,7 @@ class ChatBot {
         self.cards = cards
     }
     
-    func parseString(string: String) {
+    func parseString(string: String, callback: String -> ()) {
         let userTokensTuple = self.userTokens(string)
         let userTokens = userTokensTuple.tokens
         let noSlackUsersString = userTokensTuple.newString
@@ -43,7 +43,7 @@ class ChatBot {
         
         tokens += Tokenizer.tokenize(finalString)
         
-        Parser.parse(tokens)
+        Parser.parse(tokens, callback: callback)
     }
     
     private func userTokens(string: String) -> (tokens: [Token], newString: String) {
@@ -56,8 +56,11 @@ class ChatBot {
                 print("No user match")
                 return tuple
             }
+            guard let range = string.rangeFromNSRange(userMatch.range) else {
+                return tuple
+            }
             if userMatch.range.location == 0 && userMatch.range.length == 0 { return tuple }
-            let finalString = (tuple.1 as NSString).stringByReplacingCharactersInRange(userMatch.range, withString: "")
+            let finalString = tuple.1.stringByReplacingCharactersInRange(range, withString: "")
             print("Found user \(slackUser.0.slackName)")
             return (tuple.0 + [.User(slackUser.0)], finalString)
         }
@@ -66,39 +69,45 @@ class ChatBot {
     private func boardToken(string: String) -> (token: Token?, newString: String) {
         return boards.flatMap {
             guard let name = $0.name,
-                regex = try? NSRegularExpression(pattern: "(\(name))", options: []),
-                userMatch = regex.firstMatchInString(name, options: [], range: NSMakeRange(0, name.characters.count)) else {
+                let rangeOfString = string.rangeOfString("\(name)") else {
                 print("Invalid regex my friend!")
                 return nil
             }
-            let nsString = string as NSString
-            return (.TrelloBoard($0), nsString.stringByReplacingCharactersInRange(userMatch.range, withString: ""))
-        }.first ?? (nil, string)
+            let result = string.stringByReplacingCharactersInRange(rangeOfString, withString: "")
+            return (.TrelloBoard($0), result)}.first ?? (nil, string)
     }
     
     private func listToken(string: String) -> (token: Token?, newString: String) {
         return lists.flatMap {
             guard let name = $0.name,
-                regex = try? NSRegularExpression(pattern: "(\(name))", options: []),
-                userMatch = regex.firstMatchInString(name, options: [], range: NSMakeRange(0, name.characters.count)) else {
+                let rangeOfString = string.rangeOfString("\(name)") else {
                     print("Invalid regex my friend!")
                     return nil
             }
-            let nsString = string as NSString
-            return (.TrelloList($0), nsString.stringByReplacingCharactersInRange(userMatch.range, withString: ""))
+            return (.TrelloList($0), string.stringByReplacingCharactersInRange(rangeOfString, withString: ""))
             }.first ?? (nil, string)
     }
     
     private func cardToken(string: String) -> (token: Token?, newString: String) {
         return cards.flatMap {
             guard let name = $0.name,
-                regex = try? NSRegularExpression(pattern: "(\(name))", options: []),
-                userMatch = regex.firstMatchInString(name, options: [], range: NSMakeRange(0, name.characters.count)) else {
+                let rangeOfString = string.rangeOfString("\(name)") else {
                     print("Invalid regex my friend!")
                     return nil
             }
-            let nsString = string as NSString
-            return (.TrelloCard($0), nsString.stringByReplacingCharactersInRange(userMatch.range, withString: ""))
+            return (.TrelloCard($0), string.stringByReplacingCharactersInRange(rangeOfString, withString: ""))
             }.first ?? (nil, string)
+    }
+}
+
+extension String {
+    func rangeFromNSRange(nsRange : NSRange) -> Range<String.Index>? {
+        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
+        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
+        if let from = String.Index(from16, within: self),
+            let to = String.Index(to16, within: self) {
+            return from ..< to
+        }
+        return nil
     }
 }

@@ -48,9 +48,6 @@ final class TrelloDataHandler {
                     }
                 }
             }
-            if let listId = self.lists.first?.id {
-                CardCRUD().createCard(listId)
-            }
         })
     }
     
@@ -63,9 +60,6 @@ final class TrelloDataHandler {
                         self.cards += newItems
                     }
                 }
-            }
-            if let cardId = self.cards.first?.id {
-                CardCRUD().deleteCard(cardId)
             }
         })
     }

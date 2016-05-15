@@ -32,6 +32,9 @@ final class Trello {
         userDefaults.setObject(token, forKey: TrelloAuthTokenKey)
         oAuthToken = token
         TrelloDataHandler.shared.loadData()
+        let nc = UIApplication.sharedApplication().keyWindow?.rootViewController as! NavigationController
+        nc.popViewControllerAnimated(false)
+        nc.pushViewController(AssistantViewController.instantiateFromStoryboard()!, animated: true)
     }
     
     func performAuthorisation() {
@@ -56,11 +59,13 @@ final class Trello {
     }
     
     func getToken() -> String? {
-        return "520c4f01f7ea99218e9fae48438c544016ccf4740bc5394354633fb6dd79ccb4"
-//        guard let token = userDefaults.objectForKey(TrelloAuthTokenKey) as? String else {
-//            return nil
-//        }
-//        return token
+        let tokenMock =  "520c4f01f7ea99218e9fae48438c544016ccf4740bc5394354633fb6dd79ccb4"
+        guard let token = userDefaults.objectForKey(TrelloAuthTokenKey) as? String else {
+            userDefaults.setObject(tokenMock, forKey: TrelloAuthTokenKey)
+            oAuthToken = tokenMock
+            return nil
+        }
+        return token
     }
     
 }

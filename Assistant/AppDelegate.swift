@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         TrelloDataHandler.shared.loadData()
-        if let token = Trello.shared.getToken() {
+        if let _ = Trello.shared.getToken() {
             let trelloRequester = TrelloRequester()
             trelloRequester.getCardsForMemberId("5736fea69bc9bb59fdee87a3") {
                 print($0)
@@ -50,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Trello.shared.handleCallbackUrlWithQueryItems(queries)
             return true
         }
-        return true
     }
     
 }

@@ -156,7 +156,7 @@
                     <navigationItem key="navigationItem" title="Assistant" id="qra-9e-uBs">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="0q0-Xt-m26">
                             <connections>
-                                <segue destination="ey9-3I-HW3" kind="push" id="p5k-Ds-KOb"/>
+                                <action selector="searchButtonPressed:" destination="qXs-yf-NBJ" id="uM5-wp-nyt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -336,7 +336,7 @@
         <!--Assistant-->
         <scene sceneID="sph-Wv-fbJ">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="ey9-3I-HW3" customClass="AssistantViewController" customModule="Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AssistantViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ey9-3I-HW3" customClass="AssistantViewController" customModule="Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gwz-6T-AWA"/>
                         <viewControllerLayoutGuide type="bottom" id="HXw-F9-KTv"/>
@@ -346,12 +346,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-Tr-ccT" customClass="MessagesTableView" customModule="Assistant" customModuleProvider="target">
-                                <rect key="frame" x="-8" y="14" width="391" height="608"/>
+                                <rect key="frame" x="-8" y="-30" width="391" height="652"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssistantMessageTableViewCell" id="gc4-c4-Jcc" customClass="AssistantMessageTableViewCell" customModule="Assistant" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="391" height="30"/>
+                                        <rect key="frame" x="0.0" y="28" width="391" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gc4-c4-Jcc" id="DHq-SB-kUo">
                                             <rect key="frame" x="0.0" y="0.0" width="391" height="30"/>

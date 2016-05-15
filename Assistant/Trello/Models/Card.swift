@@ -22,6 +22,24 @@ final class Card {
     var subscribed: Bool?
 }
 
+extension Card: Equatable {}
+
+func ==(lhs: Card, rhs: Card) -> Bool {
+    return lhs.id == rhs.id
+}
+
+extension Card: Hashable {
+    var hashValue: Int {
+        return id!.hashValue
+    }
+}
+
+extension Array where Element: Hashable {
+    var unique: [Element] {
+        return Array(Set(self))
+    }
+}
+
 final class CardParser {
     
     func cardsFromDictionaties(dictionaries: [NSDictionary]) -> [Card] {

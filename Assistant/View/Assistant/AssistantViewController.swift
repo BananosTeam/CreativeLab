@@ -15,12 +15,19 @@ final class AssistantViewController: UIViewController, UITextFieldDelegate, UITa
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var typeMessageViewBottomConstraint: NSLayoutConstraint!
     
+    private var bot: ChatBot?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMessagesTableView()
         setupKeyboardNotifications()
         sendMessageButton.enabled = false
         typeMessageTextView.delegate = self
+        let trello = TrelloInterface()
+        bot = ChatBot(slackUsers: DataPersistor.sharedPersistor.users,
+                      boards: trello.currentUserBoards,
+                      lists: trello.currentUserLists,
+                      cards: trello.currentUserCards)
     }
     
     private func setupMessagesTableView() {
@@ -44,7 +51,11 @@ final class AssistantViewController: UIViewController, UITextFieldDelegate, UITa
         guard let messageText = typeMessageTextView.text else { return }
         DataPersistor.sharedPersistor.addBotMessage(BotMessage(message: messageText, messageType: .FromMe))
         updateLastCell()
-        
+        bot?.parseString(messageText) { response in
+            print(response)
+            DataPersistor.sharedPersistor.addBotMessage(BotMessage(message: response, messageType: .ToMe))
+            self.updateLastCell()
+        }
         typeMessageTextView.text = nil
         sendMessageButton.enabled = false
     }

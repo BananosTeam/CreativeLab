@@ -180,7 +180,15 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, UITab
     
     // MARK: Segues
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    @IBAction func searchButtonPressed(sender: AnyObject) {
         typeMessageTextView.resignFirstResponder()
+        guard let _ = Trello.shared.getToken() else {
+            let vc = ActivityViewController.instantiateFromStoryboard()!
+            navigationController?.pushViewController(vc, animated: true)
+            TrelloInterface().performAuthorisation()
+            return
+        }
+        let vc = AssistantViewController.instantiateFromStoryboard()!
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
