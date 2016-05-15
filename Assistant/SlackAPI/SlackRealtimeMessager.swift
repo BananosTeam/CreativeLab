@@ -35,17 +35,19 @@ class SlackRealtimeMessager: WebSocketDelegate {
                 user = dictionary["self"] as? [String: AnyObject] else {
                     return
             }
-            if let users = dictionary["users"] as? [[String: AnyObject]] {
-                self.retriever?.setUsers(users.flatMap { SlackUser(json: $0) })
+            dispatch_sync(dispatch_get_main_queue()) {
+                if let users = dictionary["users"] as? [[String: AnyObject]] {
+                    self.retriever?.setUsers(users.flatMap { SlackUser(json: $0) })
+                }
+                if let channels = dictionary["channels"] as? [[String: AnyObject]] {
+                    self.retriever?.setChannels(channels.flatMap { SlackChannel(json: $0) })
+                }
+                if let team = dictionary["team"] as? [String: AnyObject] {
+                    self.retriever?.setTeam(SlackTeam(json: team))
+                }
             }
-            if let channels = dictionary["channels"] as? [[String: AnyObject]] {
-                self.retriever?.setChannels(channels.flatMap { SlackChannel(json: $0) })
-            }
-            if let team = dictionary["team"] as? [String: AnyObject] {
-                self.retriever?.setTeam(SlackTeam(json: team))
-            }
-            if let userID = user["id"] as? String, callback = self.retriever?.setCurrentUser {
-                SlackFetcher.FetchUserInfo(self.tokenQuery, userID: userID, callback: callback)
+            if let userID = user["id"] as? String {
+                SlackFetcher.FetchUserInfo(self.tokenQuery, userID: userID, callback: self.retriever!.setCurrentUser)
             }
             self.socket = WebSocket(url: NSURL(string: url)!)
             self.socket?.delegate = self

@@ -18,7 +18,7 @@ final class NavigationController: ENSideMenuNavigationController, StoryboardInst
     
     private func setupSideMenu() {
         let menuViewController = SideMenuViewController.instantiateFromStoryboard()!
-        sideMenu = ENSideMenu(sourceView: view, menuViewController: menuViewController, menuPosition:.Left)
+        sideMenu = ENSideMenu(sourceView: view, menuViewController: menuViewController, menuPosition: .Left)
         sideMenu?.menuWidth = 240.0
         sideMenu?.delegate = menuViewController
         view.bringSubviewToFront(navigationBar)

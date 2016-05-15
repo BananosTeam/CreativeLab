@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let SlackCurrentUserKeyForUserDefaults = "com.bananos.SlackAPI.SlackCurrentUser"
+
 struct SlackFetcher {
     static func FetchUsers(tokenQuery: String, callback: [SlackUser] -> ()) {
         guard let usersURL = NSURL(string: SlackAPI + "users.list?" + tokenQuery) else { return callback([]) }
@@ -70,6 +72,12 @@ struct SlackFetcher {
     }
     
     static func FetchUserInfo(tokenQuery: String, userID: String , callback: SlackUser? -> ()) {
+        if let userDictData = NSUserDefaults.standardUserDefaults().objectForKey(SlackCurrentUserKeyForUserDefaults) as? NSData,
+            dictionary = NSKeyedUnarchiver.unarchiveObjectWithData(userDictData) as? [String: AnyObject],
+            user = SlackUser(json: dictionary) {
+                callback(user)
+                return
+        }
         guard let userURL = NSURL(string: SlackAPI + "users.info?user=\(userID)&" + tokenQuery) else {
             return callback(nil)
         }
@@ -80,6 +88,8 @@ struct SlackFetcher {
                 user = SlackUser(json: dictionary) else {
                     return callback(nil)
             }
+            let userDictData = NSKeyedArchiver.archivedDataWithRootObject(dictionary)
+            NSUserDefaults.standardUserDefaults().setObject(userDictData, forKey: SlackCurrentUserKeyForUserDefaults)
             callback(user)
         }
         task.resume()

@@ -58,15 +58,15 @@ class SlackClient {
     // MARK: Fetching
     
     func getCurrentUser(callback: SlackUser? -> ()) {
-        SlackFetcher.FetchCurrentUser(tokenQuery, callback: callback)
+        SlackFetcher.FetchCurrentUser(self.tokenQuery, callback: callback)
     }
     
     func getUsers(callback: [SlackUser] -> ()) {
-        SlackFetcher.FetchUsers(tokenQuery, callback: callback)
+        SlackFetcher.FetchUsers(self.tokenQuery, callback: callback)
     }
     
     func getChannels(callback: [SlackChannel] -> ()) {
-        SlackFetcher.FetchChannels(tokenQuery, callback: callback)
+        SlackFetcher.FetchChannels(self.tokenQuery, callback: callback)
     }
     
     
