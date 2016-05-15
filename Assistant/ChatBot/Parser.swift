@@ -9,6 +9,9 @@
 import Foundation
 
 final class Parser {
+    
+    private static let trello = TrelloInterface()
+    
     static func parse(tokens: [Token]) {
         // Something related to the current user
         var board: Board?
@@ -40,21 +43,34 @@ final class Parser {
             if let list = list {
                 if let board = board {
                     // Fetch specific list of specific board
+                    let allLists = trello.currentUserLists.filter() { $0.idBoard == board.id }
+                    let chosenList = allLists.filter() { $0.id == list.id }.first
+                    let listCards = trello.currentUserCards.filter() { $0.idList == chosenList?.id }
+                    print(listCards)
                 } else {
                     // Fetch specific list of default board
+                    let chosenList = trello.currentUserLists.filter() { $0.id == list.id }.first
+                    let allCards = trello.currentUserCards.filter() { $0.idList == chosenList?.id }
+                    print(allCards)
                 }
             } else if isTask {
                 // Fetch all tasks
+                let allTask = trello.currentUserCards
+                print(allTask)
             }
         } else if let user = user {
             if let list = list {
-                if let board = board {
-                    // Fetch specific list of specific board for specific user
-                } else {
-                    // Fetch specific list of default board for specific user
-                }
+                guard let trelloMemberId = user.trelloUser?.id else { return }
+                let tasks = trello.currentUserCards.filter() { $0.idList == list.id }
+                let filteredTasks = tasks.filter() { $0.idMembers?.contains(trelloMemberId) ?? false }
+                print(filteredTasks)
             } else if isTask {
                 // Fetch all tasks for a specific user
+                guard let trelloMemberId = user.trelloUser?.id else { return }
+                let filteredTasks = trello.currentUserCards.filter() {
+                    $0.idMembers?.contains(trelloMemberId) ?? false
+                }
+                print(filteredTasks)
             } else if isCreate {
                 
             } else if isSpeak {
