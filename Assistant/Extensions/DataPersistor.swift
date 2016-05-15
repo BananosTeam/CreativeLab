@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct BotMessage {
+    let message: String
+    let messageType: MessageType
+}
+
 final class DataPersistor {
     static var sharedPersistor = DataPersistor()
     
@@ -16,6 +21,7 @@ final class DataPersistor {
     private(set) var channels = [SlackChannel]()
     private(set) var messages = [Message]()
     private(set) var team: SlackTeam?
+    private(set) var botMessages = [BotMessage]()
     
     private init() {}
     
@@ -70,5 +76,9 @@ final class DataPersistor {
             return
         }
         self.messages.append(message)
+    }
+    
+    func addBotMessage(message: BotMessage) {
+        botMessages.append(message)
     }
 }

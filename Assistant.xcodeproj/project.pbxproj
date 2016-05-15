@@ -23,6 +23,8 @@
 		7D099B481CE7FEC500CFCC7F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7B93751CE76CB400A03DAC /* String.swift */; };
 		7D099B491CE7FEC500CFCC7F /* SlackAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABCD1CE73BC80025024C /* SlackAuthenticator.swift */; };
 		7D099B4A1CE7FEC500CFCC7F /* SlackRealtimeMessager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD2ABD31CE745C70025024C /* SlackRealtimeMessager.swift */; };
+		7D099BDC1CE83C9200CFCC7F /* AssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099BDB1CE83C9200CFCC7F /* AssistantViewController.swift */; };
+		7D099BE01CE844DC00CFCC7F /* AssistantMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D099BDF1CE844DC00CFCC7F /* AssistantMessageTableViewCell.swift */; };
 		7D7B93531CE71D8700A03DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93511CE71D8700A03DAC /* Main.storyboard */; };
 		7D7B93551CE71D8700A03DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93541CE71D8700A03DAC /* Assets.xcassets */; };
 		7D7B93581CE71D8700A03DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B93561CE71D8700A03DAC /* LaunchScreen.storyboard */; };
@@ -218,6 +220,8 @@
 		7D099AE31CE7D36200CFCC7F /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		7D099AE41CE7D36200CFCC7F /* Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
 		7D099AF41CE7E25A00CFCC7F /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		7D099BDB1CE83C9200CFCC7F /* AssistantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssistantViewController.swift; sourceTree = "<group>"; };
+		7D099BDF1CE844DC00CFCC7F /* AssistantMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssistantMessageTableViewCell.swift; sourceTree = "<group>"; };
 		7D7B934A1CE71D8700A03DAC /* Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7B934D1CE71D8700A03DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D7B93521CE71D8700A03DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -297,6 +301,15 @@
 			path = ChatBot;
 			sourceTree = "<group>";
 		};
+		7D099BCE1CE83C7D00CFCC7F /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				7D099BDB1CE83C9200CFCC7F /* AssistantViewController.swift */,
+				7D099BDF1CE844DC00CFCC7F /* AssistantMessageTableViewCell.swift */,
+			);
+			path = Assistant;
+			sourceTree = "<group>";
+		};
 		7D7B93411CE71D8700A03DAC = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +367,7 @@
 				7D7B93851CE7C87900A03DAC /* Activity */,
 				7D7B939D1CE7CA9700A03DAC /* SideMenuTable */,
 				7D7B93871CE7C87900A03DAC /* MessagesView */,
+				7D099BCE1CE83C7D00CFCC7F /* Assistant */,
 				7D7B938F1CE7C87900A03DAC /* StoryboardInstantiable.swift */,
 			);
 			path = View;
@@ -524,6 +538,7 @@
 				TargetAttributes = {
 					7D7B93491CE71D8700A03DAC = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9XTDAT7GE2;
 					};
 				};
 			};
@@ -679,6 +694,7 @@
 				7D099B4A1CE7FEC500CFCC7F /* SlackRealtimeMessager.swift in Sources */,
 				B19D04031CE7DDA100CB8BA6 /* TrelloDataHolder.swift in Sources */,
 				7D099AE51CE7D36200CFCC7F /* ChatBot.swift in Sources */,
+				7D099BE01CE844DC00CFCC7F /* AssistantMessageTableViewCell.swift in Sources */,
 				7D099AD11CE78C0D00CFCC7F /* AppDelegate.swift in Sources */,
 				B19D04131CE7F01900CB8BA6 /* TrelloInterface.swift in Sources */,
 				B19D04111CE7E21900CB8BA6 /* Member.swift in Sources */,
@@ -691,6 +707,7 @@
 				7D099AC71CE76D6A00CFCC7F /* SlackFetcher.swift in Sources */,
 				7D7B939B1CE7CA8100A03DAC /* ENSideMenu.swift in Sources */,
 				7D099AC51CE765C300CFCC7F /* SlackChannel.swift in Sources */,
+				7D099BDC1CE83C9200CFCC7F /* AssistantViewController.swift in Sources */,
 				7D7B93921CE7C87900A03DAC /* MessagesTableView.swift in Sources */,
 				7D099ACC1CE777E400CFCC7F /* SRMRetriever.swift in Sources */,
 				7D099ABF1CE75EE600CFCC7F /* SRMDelegate.swift in Sources */,
@@ -861,7 +878,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -882,7 +899,7 @@
 				INFOPLIST_FILE = Assistant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bananos.Assistant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananosteam.AssistantApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
