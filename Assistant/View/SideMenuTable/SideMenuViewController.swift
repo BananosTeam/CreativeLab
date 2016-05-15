@@ -53,7 +53,9 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
             usersTableView.deselectSelectedUser()
             handleChannelSelectionAtIndex(indexPath.row)
         }
+        ((sideMenuController() as? NavigationController)?.childViewControllers.first as? MessagesViewController)?.messagesTableView.reloadData()
         sideMenuController()?.sideMenu?.hideSideMenu()
+        
     }
     
     private func handleUserSelectionAtIndex(index: Int) {
@@ -75,6 +77,10 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
     func eventReceived(event: SlackEvent) {
         if case .Message(let message) = event {
             DataPersistor.sharedPersistor.addMessage(Message(slackMessage: message, messageType: .ToMe))
+            if let messagesVC = (sideMenuController() as? NavigationController)?.childViewControllers.first
+                as? MessagesViewController {
+                messagesVC.reloadLastMessage()
+            }
         }
     }
     

@@ -66,6 +66,9 @@ final class DataPersistor {
     }
     
     func addMessage(message: Message) {
+        guard !messages.map({ $0.slackMessage.text }).contains(message.slackMessage.text) else {
+            return
+        }
         self.messages.append(message)
     }
 }

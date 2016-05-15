@@ -58,10 +58,17 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, UITab
         guard let messageText = typeMessageTextView.text else { return }
         if let currentOpenChannel = currentOpenChannel {
             SlackClient.currentClient?.messager.sendMessage(messageText, channel: currentOpenChannel.id)
+            let user = DataPersistor.sharedPersistor.currentUser?.id ?? ""
+            DataPersistor.sharedPersistor.addMessage(Message(slackMessage:
+                SlackMessage(channel: currentOpenChannel.id, user: user, text: messageText, ts: NSDate()), messageType: .FromMe))
         } else if let currentOpenChannelWithUser = currentOpenChannelWithUser {
             SlackClient.currentClient?.messager.sendMessage(messageText, channel: currentOpenChannelWithUser.id)
+            let user = DataPersistor.sharedPersistor.currentUser?.id ?? ""
+            DataPersistor.sharedPersistor.addMessage(Message(slackMessage:
+                SlackMessage(channel: currentOpenChannelWithUser.id, user: user, text: messageText, ts: NSDate()), messageType: .FromMe))
         }
         typeMessageTextView.text = nil
+        sendMessageButton.enabled = false
     }
     
     // MARK: Keyboard
@@ -147,8 +154,10 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, UITab
             messages =  DataPersistor.sharedPersistor.messagesForChannel(currentChannel.id)
         } else if let currentUser = currentOpenChannelWithUser {
             messages = DataPersistor.sharedPersistor.messagesForUser(currentUser.id)
+        } else {
+            return
         }
-        let indexPathsToInsert = NSIndexPath(forRow: messages.count - 1, inSection: 0)
+        let indexPathsToInsert = NSIndexPath(forItem: messages.count - 1, inSection: 0)
         messagesTableView.beginUpdates()
         messagesTableView.insertRowsAtIndexPaths([indexPathsToInsert], withRowAnimation: rowAnimationForLastMessage)
         messagesTableView.endUpdates()
