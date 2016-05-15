@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SlackUser {
+final class SlackUser {
     let firstName: String?
     let lastName: String?
     let name: String?
@@ -16,6 +16,7 @@ struct SlackUser {
     let slackName: String
     let id: String
     let imageURL: String
+    var trelloUser: Member?
     
     init?(json: [String: AnyObject]) {
         guard let id = json["id"] as? String,

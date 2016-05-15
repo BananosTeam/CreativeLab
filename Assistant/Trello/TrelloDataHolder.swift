@@ -64,6 +64,7 @@ final class TrelloDataHandler {
                     }
                 }
             }
+            TrelloInterface().populateSlackUsersWIthTrelloMembers()
         })
     }
     

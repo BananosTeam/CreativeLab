@@ -42,4 +42,24 @@ final class TrelloInterface {
         requester.getCardsForMemberId(memberId, callback: callback)
     }
     
+    func populateSlackUsersWIthTrelloMembers() {
+        let slackUsers = DataPersistor.sharedPersistor.users
+        let trelloMembers = currentUserMembers
+        slackUsers.forEach { (slackUser) in
+            trelloMembers.forEach({ (trelloMember) in
+                let slackUserName = slackUser.firstName ?? "" + " " + (slackUser.lastName ?? "")
+                let slackInvertedUserName = slackUser.lastName ?? "" + " " + (slackUser.firstName ?? "")
+                let slackPossibleNames: [String] = [slackUser.name ?? "", slackUser.slackName ?? "",
+                                                slackUser.lastName ?? "", slackUser.firstName ?? "",
+                                                slackUserName, slackInvertedUserName]
+                let trelloUsername = trelloMember.username ?? ""
+                let treloFullname = trelloMember.fullName ?? ""
+                if slackPossibleNames.contains(trelloUsername) || slackPossibleNames.contains(treloFullname) {
+                    slackUser.trelloUser = trelloMember
+                }
+                
+            })
+        }
+    }
+    
 }

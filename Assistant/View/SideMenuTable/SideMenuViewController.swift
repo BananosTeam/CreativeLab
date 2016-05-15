@@ -67,6 +67,8 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
     func setUsers(callback: [SlackUser]) {
         DataPersistor.sharedPersistor.addUsers(callback)
         usersTableView.reloadData()
+        let trello = TrelloInterface()
+        trello.populateSlackUsersWIthTrelloMembers()
         fetchingUsersActivityIndicator.stopAnimating()
     }
     
