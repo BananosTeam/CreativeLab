@@ -15,6 +15,8 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, Story
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var typeMessageViewBottomConstraint: NSLayoutConstraint!
 
+    var currentOpenChannel: SlackChannel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMessagesTableView()
@@ -37,21 +39,13 @@ final class MessagesViewController: UIViewController, UITextFieldDelegate, Story
                                                          name:UIKeyboardWillHideNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardSizeWillChange),
                                                          name:UIKeyboardWillChangeFrameNotification, object: nil)
-
     }
     
     // MARK: Actions
     
     @IBAction func sendMessage(sender: AnyObject) {
-        guard let messageText = typeMessageTextView.text else { return }
-        let slackMessage = SlackMessage(json: ["text": messageText])
-        if arc4random_uniform(2) == 0 {
-            DataPersistor.sharedPersistor.addMessage(Message(slackMessage:slackMessage, messageType: .FromMe))
-            messagesTableView.reloadLastMessage()
-        } else {
-            DataPersistor.sharedPersistor.addMessage(Message(slackMessage:slackMessage, messageType: .ToMe))
-            messagesTableView.reloadLastMessage()
-        }
+        guard let messageText = typeMessageTextView.text, currentOpenChannel = currentOpenChannel else { return }
+        SlackClient.currentClient?.messager.sendMessage(messageText, channel: currentOpenChannel.id)
         typeMessageTextView.text = nil
     }
     

@@ -20,4 +20,11 @@ struct SlackMessage {
         text = json["text"] as? String ?? ""
         ts = NSDate(timeIntervalSince1970: Double(json["ts"] as? String ?? "") ?? 0)
     }
+    
+    init(channel: String, user: String, text: String, ts: NSDate) {
+        self.channel = channel
+        self.user = user
+        self.text = text
+        self.ts = ts
+    }
 }

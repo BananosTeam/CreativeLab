@@ -51,7 +51,9 @@ final class SideMenuViewController: UIViewController, StoryboardInstantiable, EN
     }
     
     private func handleChannelSelectionAtIndex(index: Int) {
-        debugPrint("Channel selected at index \(index)")
+        guard let messagesVC = (sideMenuController() as? NavigationController)?.childViewControllers.first
+            as? MessagesViewController else { return }
+        messagesVC.currentOpenChannel = DataPersistor.sharedPersistor.channels[index]
     }
     
     // MARK: SRMDelegate

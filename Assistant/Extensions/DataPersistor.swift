@@ -19,6 +19,24 @@ final class DataPersistor {
     
     private init() {}
     
+    func channelWithID(id: String) -> SlackChannel? {
+        for channel in channels {
+            if channel.id == id {
+                return channel
+            }
+        }
+        return nil
+    }
+    
+    func userForID(id: String) -> SlackUser? {
+        for user in users {
+            if user.id == id {
+                return user
+            }
+        }
+        return nil
+    }
+    
     func addUsers(users: [SlackUser]) {
         self.users.appendContentsOf(users)
     }
